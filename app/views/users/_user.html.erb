@@ -1,8 +1,5 @@
 <div id="<%= dom_id user %>">
   <p>
-    <strong>mail:</strong>
-    <%= user.email %>
+    <%= user.name ? user.name : user.email %>
   </p>
-
-
 </div>

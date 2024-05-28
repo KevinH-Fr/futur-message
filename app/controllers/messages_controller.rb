@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @users = User.all
   end
 
   # GET /messages/1/edit
@@ -22,6 +23,7 @@ class MessagesController < ApplicationController
   # POST /messages or /messages.json
   def create
     @message = Message.new(message_params)
+    @users = User.all
 
     respond_to do |format|
       if @message.save

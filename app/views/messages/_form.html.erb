@@ -21,15 +21,19 @@
     <%= form.text_area :content %>
   </div>
 
-  <div>
-    <%= form.label :sender_id, style: "display: block" %>
-    <%= form.text_field :sender_id %>
-  </div>
 
   <div>
-    <%= form.label :receiver_id, style: "display: block" %>
-    <%= form.text_field :receiver_id %>
+    <%= form.label :sender_id, "Sender" %>
+    <%= form.text_field :sender_id, value: current_user.name, readonly: true, class: 'form-control' %>
+    <%= form.hidden_field :sender_id, value: current_user.id %>
   </div>
+
+  <div class="input-group input-group mb-1">
+    <%= form.label :receiver_id, class: "input-group-text" %>
+    <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
+    { include_blank: 'Sélectionner' }, class: "form-select" %>
+  </div>
+
 
   <div>
     <%= form.label :sent_at, style: "display: block" %>
