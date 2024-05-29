@@ -13,4 +13,12 @@ class Message < ApplicationRecord
   scope :past, -> { where('sent_at <= ?', Time.current) }
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
   
+  def past?
+    sent_at <= Time.current
+  end
+
+  def upcoming?
+    sent_at > Time.current
+  end
+  
 end

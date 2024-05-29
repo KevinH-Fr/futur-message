@@ -1,33 +1,39 @@
 <div class="card m-4 p-3" id="<%= dom_id message %>">
-  <p>
-    <strong>Title:</strong>
-    <%= message.title %>
-  </p>
 
-  <p>
-    <strong>Content:</strong>
-    <%= message.content %>
-  </p>
+  <div class="container <%= 'exclusive-post' if message.upcoming? %>"> 
+  
+    <p>
+      <strong>Title:</strong>
+      <%= message.title %>
+    </p>
 
-  <p>
-    <strong>Sender:</strong>
-    <%= message.sender.name %>
-  </p>
+    <p>
+      <strong>Content:</strong>
+      <%= message.content %>
+    </p>
 
-  <p>
-    <strong>Receiver:</strong>
-    <%= message.receiver.name %>
-  </p>
+    <p>
+      <strong>Sender:</strong>
+      <%= message.sender.name %>
+    </p>
 
-  <p>
-    <strong>Sent at:</strong>
-    <%#= message.sent_at %>
-    <%= distance_of_time_in_words( message.sent_at, Time.current) %> 
+    <p>
+      <strong>Receiver:</strong>
+      <%= message.receiver.name %>
+    </p>
 
-  </p>
+    <p>
+      <strong>Sent at:</strong>
+      <%= distance_of_time_in_words(message.sent_at, Time.current) %> 
+    </p>
 
-      <p>
+    <p>
       <%= link_to "Show this message", message, class: "btn btn-outline-primary" %>
     </p>
+  </div>
+  
+  <% if message.upcoming? %>
+    time left: compteur temps restant
+  <% end %>
 
 </div>
