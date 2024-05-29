@@ -1,4 +1,4 @@
-<div id="<%= dom_id message %>">
+<div class="card m-4 p-3" id="<%= dom_id message %>">
   <p>
     <strong>Title:</strong>
     <%= message.title %>
@@ -21,7 +21,13 @@
 
   <p>
     <strong>Sent at:</strong>
-    <%= message.sent_at %>
+    <%#= message.sent_at %>
+    <%= distance_of_time_in_words( message.sent_at, Time.current) %> 
+
   </p>
+
+      <p>
+      <%= link_to "Show this message", message, class: "btn btn-outline-primary" %>
+    </p>
 
 </div>

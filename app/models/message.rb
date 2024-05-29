@@ -10,4 +10,7 @@ class Message < ApplicationRecord
   validates :receiver_id, presence: true
   validates :sent_at, presence: true
   
+  scope :past, -> { where('sent_at <= ?', Time.current) }
+  scope :upcoming, -> { where('sent_at > ?', Time.current) }
+  
 end

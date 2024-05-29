@@ -1,16 +1,25 @@
-<footer class="mt-auto bg-dark text-white-50 text-center py-3">
-    <div class="container">
+<footer class="mt-auto bg-dark text-white-50 text-center p-2">
 
         <% if user_signed_in? %>
-            <span class="fw-bold"><%= current_user.email %> </span>
+        
+            <div class="row">
 
-            <span class="container-fluid d-flex justify-content-end">
-                <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger d-flex align-items-center" do %>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                <% end %>
-            </span>
+                <div class="col">
+                </div>
+
+                <div class="col-8 text-center">
+                    <span class="fw-bold"><%= current_user.email %> </span>
+                </div>
+
+                <div class="col">
+                    <span class="container-fluid d-flex justify-content-end">
+                        <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger d-flex align-items-center" do %>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        <% end %>
+                    </span>
+                </div>
+            </div>
+            
         <% end %>
 
-        <div>© FuturMessage <%= Date.current.year %></div>
-    </div>
 </footer>

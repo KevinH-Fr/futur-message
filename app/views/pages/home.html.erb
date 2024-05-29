@@ -1,9 +1,11 @@
-<h1>home</h1>
+<h1>Accueil</h1>
 
 
 nombres d'utilisateurs: <%= @users.count %> <br>
-nombre de messages envoyées:  <%= @messages.count %> <br>
+nombre de messages:  <%= @messages.count %> <br>
 
-<%= link_to  "messages", messages_path %>
+<hr>
 
-<%= link_to  "utilisateurs", users_path %>
+<%= link_to  "messages", messages_path, class: "btn btn-primary fw-bold" %>
+
+<%= link_to  "utilisateurs", users_path, class: "btn btn-dark fw-bold" %>

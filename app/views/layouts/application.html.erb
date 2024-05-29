@@ -14,24 +14,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="">
     <%= render "shared/navbar" %>
 
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="page-max-widthed">
-        <main class="p-4">
-          <div id="flash" class="mt-4" style="z-index: 10;">
-            <%#= render partial: "layouts/flash" %>
-          </div>        
-          <div style="z-index: 0;">
-            <%= yield %>
-          </div>
-        </main>
-      </div>
-    </div>
+    <main class="p-4 mb-5">
+      <%= yield %>
+    </main>
 
   </body>
-
 
   <footer class="fixed-bottom footer-index bg-dark">
       <%= render 'shared/footer' %>

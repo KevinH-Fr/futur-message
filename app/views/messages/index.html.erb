@@ -1,14 +1,46 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Messages</h1>
+<h1 class="">Messages</h1>
+
+<div class="container-fluid text-center">
+  <div class="row gx-3">
+    <div class="col">
+     <div class="p-3 border bg-light">
+        total: <%= @messages.count %>
+     </div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">
+        past: <%= @past_messages.count %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">
+        upcoming: <%= @upcoming_messages.count %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<h2>Past</h2>
 
 <div id="messages">
-  <% @messages.each do |message| %>
+  <% @past_messages.each do |message| %>
     <%= render message %>
-    <p>
-      <%= link_to "Show this message", message %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New message", new_message_path %>
+<hr>
+
+<h2>Oncoming</h2>
+
+<div id="messages">
+  <% @upcoming_messages.each do |message| %>
+    <%= render message %>
+  <% end %>
+</div>
+
+<%= link_to "New message", new_message_path, class: "btn btn-primary" %>

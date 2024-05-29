@@ -1,5 +1,8 @@
-<div id="<%= dom_id user %>">
+<div class="card m-4 p-3" id="<%= dom_id user %>">
   <p>
     <%= user.name ? user.name : user.email %>
+  </p>
+  <p>
+    <%= link_to  "send message", new_message_path(receiver_id: user.id), class: "btn btn-outline-primary" %>
   </p>
 </div>

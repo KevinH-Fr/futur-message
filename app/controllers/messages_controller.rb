@@ -3,7 +3,9 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(receiver_id: current_user.id)
+    @past_messages = @messages.past
+    @upcoming_messages = @messages.upcoming
   end
 
   # GET /messages/1 or /messages/1.json
