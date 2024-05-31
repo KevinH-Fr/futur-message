@@ -19,11 +19,10 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav text-center me-auto my-2 my-lg-0 ms-4">
-
-        <%= link_to "Accueil", root_path, class: "fs-3 nav-link" %>
-        <%= link_to "Messages", messages_path, class: "fs-3 nav-link" %>
-        <%= link_to "Utilisateurs", users_path, class: "fs-3 nav-link" %>
+      <ul class="navbar-nav me-auto my-2 my-lg-0">
+        <%= nav_link(root_path, "Accueil", "fa-house") %>
+        <%= nav_link(messages_path, "Messages", "fa-message") %>
+        <%= nav_link(users_path, "Utilisateurs", "fa-users") %>
 
       </ul>
 
