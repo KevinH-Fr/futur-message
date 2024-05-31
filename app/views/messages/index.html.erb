@@ -1,31 +1,48 @@
 <p style="color: green"><%= notice %></p>
 
-<h1 class="">Messages</h1>
+<h1 class="mb-3">Messages</h1>
 
 <div class="container-fluid text-center">
   <div class="row gx-3">
     <div class="col">
-     <div class="p-3 border bg-light">
-        total: <%= @messages.count %>
+     <div class="p-1 border bg-light">
+        total:
+       <span class="badge bg-secondary"> 
+        <%= @messages.count %>
+      </span> 
      </div>
     </div>
     <div class="col">
-      <div class="p-3 border bg-light">
-        past: <%= @past_messages.count %>
+      <div class="p-1 border bg-light">
+        past: 
+        <span class="badge bg-secondary"> 
+          <%= @past_messages.count %>
+        </span> 
       </div>
     </div>
     <div class="col">
-      <div class="p-3 border bg-light">
-        upcoming: <%= @upcoming_messages.count %>
+      <div class="p-1 border bg-light">
+        to come: 
+        <span class="badge bg-secondary  <%= 'bg-danger' if @upcoming_messages.count>0 %> "> 
+          <%= @upcoming_messages.count %>
+        </span> 
       </div>
     </div>
   </div>
 </div>
 
+<%= link_to "Send new message", new_message_path, 
+      class: "btn btn-primary fw-bold w-100 my-3" %>
+
 
 <hr>
 
-<h2>Past</h2>
+<h2>
+  Past
+  <span class="badge bg-secondary"> 
+    <%= @past_messages.count %>
+  </span> 
+</h2>
 
 <div id="messages">
   <% @past_messages.each do |message| %>
@@ -35,7 +52,12 @@
 
 <hr>
 
-<h2>Oncoming</h2>
+<h2>
+  To come
+  <span class="badge bg-secondary <%= 'bg-danger' if @upcoming_messages.count>0 %>">
+    <%= @upcoming_messages.count %>
+  </span> 
+</h2>
 
 <div id="messages">
   <% @upcoming_messages.each do |message| %>
@@ -43,4 +65,4 @@
   <% end %>
 </div>
 
-<%= link_to "New message", new_message_path, class: "btn btn-primary" %>
+<hr>

@@ -3,14 +3,19 @@
   <div class="container-fluid">
 
     <div class="d-flex flex-column align-items-center">  
-      <%= link_to image_tag('/images/logo_courant.png', class: '', width: "100"), root_path %>
+
+      <%= link_to root_path do %>
+        <%#= link_to image_tag('/images/logo_courant.png', class: '', width: "100"), root_path %>
+        
+        <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
+          <div data-controller="timecounter">
+            <i class="fa fa-lg fa-clock me-1"></i>
+            <span data-timecounter-target="timer">00:00:00</span>
+          </div>
+        </div> 
       
-      <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
-        <div data-controller="timecounter">
-          <i class="fa fa-lg fa-clock me-1"></i>
-          <span data-timecounter-target="timer">00:00:00</span>
-        </div>
-      </div> 
+      <% end %>
+      
     </div>
 
 

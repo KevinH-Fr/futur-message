@@ -11,36 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="input-group input-group mb-2">
+    <%= form.label :title, class: "input-group-text" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+  <div class="input-group input-group mb-2">
+    <%= form.label :content, class: "input-group-text" %>
+    <%= form.text_area :content, class: "form-control text" %>
   </div>
 
-
-  <div>
-    <%= form.label :sender_id, "Sender" %>
-    <%= form.text_field :sender_id, value: current_user.name, readonly: true, class: 'form-control' %>
+    <%#= form.label :sender_id, "Sender", class: "input-group-text" %>
+    <%#= form.text_field :sender_id, value: current_user.name, readonly: true, class: 'form-control' %>
     <%= form.hidden_field :sender_id, value: current_user.id %>
-  </div>
 
-  <div class="input-group input-group mb-1">
+  <div class="input-group input-group mb-2">
     <%= form.label :receiver_id, class: "input-group-text" %>
     <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
     { include_blank: 'Sélectionner', selected: params[:receiver_id] },  class: "form-select" %>
   </div>
 
 
-  <div>
-    <%= form.label :sent_at, style: "display: block" %>
-    <%= form.datetime_field :sent_at %>
+  <div class="input-group input-group mb-2">
+    <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
+    <%= form.datetime_field :sent_at, class: "form-control date" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= custom_submit_button(form, "Envoyer") %>
+
 <% end %>

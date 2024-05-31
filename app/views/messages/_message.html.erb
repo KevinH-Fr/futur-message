@@ -27,9 +27,14 @@
       <%= message.sent_at %> 
     </p>
 
-    <p>
-      <%= link_to "Show this message", message, class: "btn btn-outline-primary" %>
-    </p>
+
+    <div class="text-end">
+      <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
+        <i class="fa fa-envelope-open"></i>
+        <span class="fw-bold">Open</span>
+      <% end %>
+      
+    </div>
   </div>
   
   <% if message.upcoming? %>

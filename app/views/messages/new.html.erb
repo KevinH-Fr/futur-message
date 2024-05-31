@@ -2,8 +2,6 @@
 
 <%= render "form", message: @message %>
 
-<br>
+<hr>
 
-<div>
-  <%= link_to "Back to messages", messages_path %>
-</div>
+<%= return_model_index_button("Retour vers messages", messages_path) %>

@@ -1,15 +1,23 @@
-<h1 class="text-center">Accueil</h1>
+<h1 class="text-center fw-bold">Accueil</h1>
 
-<h2 class="container p-2 m-4 text-center"> 
+<h2 class="container p-2 m-2 text-center"> 
     Envoyez vorte message aujourd'hui <br>
+</h2>
+
+<h2 class="container p-2 m-2 text-center"> 
     Le destinataire ne pourra le lire qu'à la date que vous avez choisi !
 </h2>
 
-nombres d'utilisateurs: <%= @users.count %> <br>
-nombre de messages:  <%= @messages.count %> <br>
+<hr>
+
+nombres d'utilisateurs: <span class="badge bg-secondary"> <%= @users.count %> </span> <br>
+nombre de messages: <span class="badge bg-secondary"> <%= @messages.count %>  </span> <br>
 
 <hr>
 
-<%= link_to  "messages", messages_path, class: "btn btn-primary fw-bold" %>
 
-<%= link_to  "utilisateurs", users_path, class: "btn btn-dark fw-bold" %>
+<%= link_to "Nouveau message", new_message_path, class: "btn btn-primary fw-bold" %>
+
+<%= link_to  "Mes messages", messages_path, class: "btn btn-dark fw-bold" %>
+
+<%#= link_to  "utilisateurs", users_path, class: "btn btn-dark fw-bold" %>

@@ -19,7 +19,19 @@
                     </span>
                 </div>
             </div>
-            
+        <% else %>
+
+            <%= link_to new_user_session_path, class: "btn btn-outline-warning m-2 p-2 rounded-pill" do %>
+                <i class="fa fa-solid fa-user-lock"></i>
+                <span class="ms-1 fw-bold">Connexion</span>
+            <% end %>
+
+
+            <%= link_to new_user_registration_path, class: "btn btn-outline-primary m-2 p-2 rounded-pill" do %>
+                <i class="fa fa-solid fa-user-plus"></i>
+                <span class="ms-1 fw-bold">Nouveau</span>
+            <% end %>
+
         <% end %>
 
 </footer>
