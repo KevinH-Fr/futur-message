@@ -1,15 +1,25 @@
 
 <nav class="navbar navbar-expand-lg light-beige-colored shadow-sm">
   <div class="container-fluid">
-    <%= link_to image_tag('/images/logo_courant.png', class: 'me-4', width: "200"), root_path %>
-    <%= Time.now.strftime("%B %d, %Y %H:%M %p") %>
+
+    <div class="d-flex flex-column align-items-center">  
+      <%= link_to image_tag('/images/logo_courant.png', class: '', width: "100"), root_path %>
+      
+      <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
+        <div data-controller="timecounter">
+          <i class="fa fa-lg fa-clock me-1"></i>
+          <span data-timecounter-target="timer">00:00:00</span>
+        </div>
+      </div> 
+    </div>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav me-auto my-2 my-lg-0">
+      <ul class="navbar-nav text-center me-auto my-2 my-lg-0 ms-4">
 
         <%= link_to "Accueil", root_path, class: "fs-3 nav-link" %>
         <%= link_to "Messages", messages_path, class: "fs-3 nav-link" %>

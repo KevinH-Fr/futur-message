@@ -24,7 +24,7 @@
 
     <p>
       <strong>Sent at:</strong>
-      <%= distance_of_time_in_words(message.sent_at, Time.current) %> 
+      <%= message.sent_at %> 
     </p>
 
     <p>
@@ -33,7 +33,16 @@
   </div>
   
   <% if message.upcoming? %>
-    time left: compteur temps restant
+      <p>
+        <strong>Openable in:</strong>
+        <div class="badge bg-primary text-light p-2 my-2" style="min-width: 140px;">
+            <div data-controller="countdown" data-countdown-event-date="<%= message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + message.sent_at.strftime('%:z') %>">
+                <i class="fa fa-lg fa-clock me-1"> </i>
+                <span data-countdown-target="timer">00:00:00</span>
+            </div>
+        </div>
+      </p>
+
   <% end %>
 
 </div>

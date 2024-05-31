@@ -20,6 +20,8 @@ class MessagesController < ApplicationController
 
   # GET /messages/1/edit
   def edit
+    @users = User.all
+
   end
 
   # POST /messages or /messages.json
@@ -40,6 +42,8 @@ class MessagesController < ApplicationController
 
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
+    @users = User.all
+
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to message_url(@message), notice: "Message was successfully updated." }
