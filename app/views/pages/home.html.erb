@@ -5,7 +5,7 @@
 </h2>
 
 <h2 class="container p-2 m-2 text-center"> 
-    Le destinataire ne pourra le lire qu'à la date que vous avez choisi !
+    Le destinataire ne pourra le lire qu'à la date que vous avez choisie !
 </h2>
 
 <hr>
@@ -16,8 +16,21 @@ nombre de messages: <span class="badge bg-secondary"> <%= @messages.count %>  </
 <hr>
 
 
-<%= link_to "Nouveau message", new_message_path, class: "btn btn-primary fw-bold" %>
 
-<%= link_to  "Mes messages", messages_path, class: "btn btn-dark fw-bold" %>
+<%= link_to new_message_path, 
+      class: "btn btn-primary fw-bold w-100 my-1" do %>
+
+  <i class="fa-regular fa-pen-to-square"></i>
+  <span> Send new message </span> 
+
+<% end %>
+
+
+<%= link_to messages_path, 
+      class: "btn btn-dark fw-bold w-100 my-1" do %>
+  <i class="fa-regular fa-envelope"></i>
+  <span> My messages </span> 
+
+<% end %>
 
 <%#= link_to  "utilisateurs", users_path, class: "btn btn-dark fw-bold" %>

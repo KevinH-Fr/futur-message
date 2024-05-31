@@ -2,9 +2,22 @@
 
 <%= render @message %>
 
-<div>
-  <%= link_to "Edit this message", edit_message_path(@message) %> |
-  <%= link_to "Back to messages", messages_path %>
+<div class="d-flex align-items-center"> 
 
-  <%= button_to "Destroy this message", @message, method: :delete %>
+  <%= link_to edit_message_path(@message), class: "btn btn-sm btn-secondary me-1" do %>
+    <i class="fa fa-pen-to-square"> </i>
+    <span class="fw-bold">Edit</span>
+  <% end %>
+
+  <%= button_to @message, method: :delete, class: "btn btn-sm btn-danger",
+        :onclick => "return confirm('Etes-vous certain de vouloir supprimer cet élément ?')" do %>
+    <i class="fa-solid fa-trash"> </i>
+    <span class="fw-bold">Destroy</span>
+  <% end %>
+  
 </div>
+
+
+<hr>
+
+<%= return_model_index_button("Retour vers messages", messages_path) %>
