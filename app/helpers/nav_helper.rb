@@ -1,4 +1,4 @@
-module NavAdminHelper
+module NavHelper
     def nav_link(path, name, icon_class, options = {})
       classes = ["nav-item text-center m-2"]
       classes << "active" if current_page?(path)
