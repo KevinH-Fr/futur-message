@@ -1,7 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["timer"];
+  //static targets = ["timer"];
+
+  static get targets() {
+    return [ "timer" ]
+  }
 
   connect() {
     console.log("Timer controller connected");
