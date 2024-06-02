@@ -1,0 +1,29 @@
+
+
+<div class="container-fluid text-center">
+
+    <div class="container rounded-pill bg-secondary text-light m-1 fw-bold fs-6" style="background-color: rgba(255, 255, 255, 0.2);">
+        <div class="row align-items-center justify-content-center">
+            <div class="col p-0 m-0">
+                <i class="fa fa-message"></i>
+                <span> messages </span>
+            </div>
+            <div class="col p-1">
+                <div data-controller="counter" data-target-value="<%= @messages.count %>"></div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="container rounded-pill bg-secondary text-light m-1 fw-bold fs-6" style="background-color: rgba(255, 255, 255, 0.2);">
+        <div class="row align-items-center justify-content-center">
+            <div class="col p-0 m-0">
+                <i class="fa fa-user-group"></i>
+                <span> utilisateurs </span>
+            </div>
+            <div class="col p-1">
+                <div data-controller="counter" data-target-value="<%= @users.count %>"></div>
+            </div>  
+        </div>
+    </div>
+
+</div>

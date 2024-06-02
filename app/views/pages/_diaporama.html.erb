@@ -1,0 +1,58 @@
+
+<div class="card m-2 border shadow px-2 py-2 justify-content-bottom text-center" style="">
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+
+    <div class="carousel-inner my-4">
+
+      <div class="carousel-item active" data-bs-interval="4000">
+        <%= svg_animation("svgs/svg2.svg", "create and manage simrace league") %> 
+          <h3> Ecrivez un message pour votre famille, vos amis ou vous-même </h3>
+      </div>
+
+
+      <div class="carousel-item" data-bs-interval="4000">
+        <%= svg_animation("svgs/svg1.svg", "create and manage simrace league") %> 
+          <h3> Décidez de quand il sera lisible par le destinataire </h3>
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+  // Function to reanimate the SVG
+  function reanimateSvg() {
+    const svgElements = document.getElementsByClassName("reanimate-svg");
+
+    // Loop through all elements with the "reanimate-svg" class
+    for (let i = 0; i < svgElements.length; i++) {
+      const svgElement = svgElements[i];
+      const imageUrl = svgElement.getAttribute("src");
+
+      // Add a random query parameter to the URL to force reload
+      const newImageUrl = `${imageUrl.split("?")[0]}?t=${new Date().getTime()}`;
+      svgElement.setAttribute("src", newImageUrl);
+    }
+  }
+
+  // Call reanimateSvg every 5 seconds (5000 milliseconds)
+  setInterval(reanimateSvg, 2000);
+</script>

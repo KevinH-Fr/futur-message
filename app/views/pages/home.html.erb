@@ -1,31 +1,32 @@
 
-<div class="p-0 m-0">
-    <%= render 'pages/video' %>
+<%= render 'pages/video' %>
+
+<%= render 'pages/diaporama' %>
+
+<div class="p-2">
+  <%= link_to new_message_path, 
+        class: "btn btn-primary fw-bold w-100 my-1" do %>
+
+    <i class="fa-regular fa-pen-to-square"></i>
+    <span> Send new message </span> 
+
+  <% end %>
+
+
+  <%= link_to messages_path, 
+        class: "btn btn-dark fw-bold w-100 my-1" do %>
+    <i class="fa-regular fa-envelope"></i>
+    <span> My messages </span> 
+
+  <% end %>
 </div>
 
-<hr>
-
-nombres d'utilisateurs: <span class="badge bg-secondary"> <%= @users.count %> </span> <br>
-nombre de messages: <span class="badge bg-secondary"> <%= @messages.count %>  </span> <br>
 
 <hr>
 
+<%= render 'pages/counters' %>
 
 
-<%= link_to new_message_path, 
-      class: "btn btn-primary fw-bold w-100 my-1" do %>
 
-  <i class="fa-regular fa-pen-to-square"></i>
-  <span> Send new message </span> 
-
-<% end %>
-
-
-<%= link_to messages_path, 
-      class: "btn btn-dark fw-bold w-100 my-1" do %>
-  <i class="fa-regular fa-envelope"></i>
-  <span> My messages </span> 
-
-<% end %>
 
 <%#= link_to  "utilisateurs", users_path, class: "btn btn-dark fw-bold" %>

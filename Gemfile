@@ -74,3 +74,6 @@ end
 
 gem "devise", "~> 4.9"
 gem 'cloudinary'
+
+gem 'requestjs-rails'
+gem 'jquery-rails'

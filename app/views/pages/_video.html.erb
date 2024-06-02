@@ -6,14 +6,21 @@
         </video>
     </div>
 
+    <h2 class="text-container text-light text-center position-absolute top-0 w-100 px-4 mt-2">
+        <strong> FuturMessage </strong>   <hr>
+
+        Envoyez vorte message aujourd'hui <br> <br>
+        Décidez de la date à laquelle il pourra être lu
+    </h2>
+
+
+
     <div class="text-container position-absolute bottom-0 w-100 px-4">
         <h2 class="text-light mb-4 text-start">
-                Envoyez vorte message aujourd'hui <br> <br>
 
-                Le destinataire ne pourra le lire qu'à la date que vous avez choisie !
-
+            
             <div data-turbo="false"> <%# fait fonctionner le carroussel %>
-                <%= link_to "Envoyer un message", root_path, class: "btn btn-light fw-bold my-2 px-5" %>
+                <%= link_to "Envoyer un message", root_path, class: "btn btn-light w-100 fw-bold my-2 px-5" %>
             </div>
         </h2>
     </div>
