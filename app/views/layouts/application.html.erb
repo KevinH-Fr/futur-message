@@ -15,13 +15,16 @@
   </head>
 
   <body class="p-0 m-0">
+
     <%= render "shared/navbar" %>
 
-    <main class="p-0 m-0 mb-5">
-      <%= yield %>
-    </main>
+    <div class="max-widthed mx-auto">
+      <main class="p-0 m-0 mb-5">
+        <%= yield %>
+      </main>
 
-    <br> <br>
+      <br> <br>
+    </div>
   </body>
 
   <footer class="fixed-bottom footer-index bg-dark">

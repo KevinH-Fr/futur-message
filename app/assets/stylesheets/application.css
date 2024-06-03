@@ -50,6 +50,9 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+.bg-light-transparency {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 body {
   background-image: url('svgs/bg-landing.svg');
@@ -61,4 +64,18 @@ body {
 h3{
   font-family:Georgia, 'Times New Roman', Times, serif ;
   font-weight: 800;
+}
+
+.max-widthed{
+  max-width: 1200px;
+}
+
+.navbar{
+  /* background-color: var(--primary-color);   */
+  position: sticky; /* Fixed position to stay at the top */
+  top: 0; /* Stick to the top of the viewport */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Set background color to white with 0.7 (70%) opacity */
+  z-index: 2; /* Higher z-index to render above content */
 }

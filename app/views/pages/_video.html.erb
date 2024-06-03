@@ -1,4 +1,4 @@
-<div class="video-container position-relative">
+<div class="video-container position-relative d-flex justify-content-center align-items-center">
     <div data-controller="video">
         <video autoplay loop muted playsinline
            src="https://res.cloudinary.com/dukne3lhz/video/upload/v1717401107/ljv7jxslulzdbxzwnbwf.mp4" 
@@ -6,13 +6,11 @@
         </video>
     </div>
 
-    <h3 class="text-container rounded bg-transparency text-light text-center position-absolute bottom-0 p-3 m-4">
-
-        Envoyez vorte message aujourd'hui <hr>
-        Décidez de la date à laquelle il pourra être lu <hr>
-
-        <%= link_to "Envoyer un message", new_message_path, class: "btn btn-light w-100 fw-bold my-2 px-5" %>
-
-    </h3>
-
+    <div class="position-absolute bottom-0 w-100 d-flex justify-content-center">
+        <h3 class="container rounded bg-transparency text-light text-center p-3 m-4">
+            Envoyez votre message aujourd'hui <hr>
+            Décidez de la date à laquelle il pourra être lu <hr>
+            <%= link_to "Envoyer un message", new_message_path, class: "btn btn-light w-100 fw-bold my-2 px-5" %>
+        </h3>
+    </div>
 </div>
