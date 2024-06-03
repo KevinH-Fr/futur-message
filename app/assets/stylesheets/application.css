@@ -47,5 +47,18 @@
 }
 
 .bg-transparency {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+body {
+  background-image: url('svgs/bg-landing.svg');
+  background-size: cover; /* Adjust this to your preference */
+  background-repeat: repeat;
+  background-position: center center; /* Adjust this to your preference */
+}
+
+h3{
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  font-weight: 800;
 }
