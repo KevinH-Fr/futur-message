@@ -11,5 +11,8 @@ class User < ApplicationRecord
  
   validates :name, presence: true
 
+  def name_or_mail
+    self.name? ? name : email
+  end
 end
 
