@@ -1,19 +1,18 @@
 <div class="container text-center">
     <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
-        <div data-controller="timecounter">
         <i class="fa fa-lg fa-clock me-1"></i>
-        <span data-timecounter-target="currentTime">00:00:00</span>
-        </div>
+        <span id="current-time">00:00:00</span>
     </div> 
 </div>
 
 
-<%= Time.now %>
 
+  <script type="text/javascript">
+    function updateTime() {
+      var currentTime = new Date();
+      document.getElementById('current-time').innerText = currentTime.toLocaleTimeString();
+    }
 
-new test current_time 
-
-<hr>
-
-  <h1>Current Time</h1>
-  <div data-controller="timecounter" data-timecounter-target="currentTime" id="current-time"></div>
+    setInterval(updateTime, 1000);
+    updateTime(); // Initial call to set the time immediately
+  </script>
