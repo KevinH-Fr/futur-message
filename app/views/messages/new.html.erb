@@ -1,7 +1,12 @@
-<h1>New message</h1>
 
-<%= render "form", message: @message %>
+<div class="container-fluid p-2">
 
-<hr>
+    <h1>New message</h1>
 
-<%= return_model_index_button("Retour vers messages", messages_path) %>
+    <%= render "form", message: @message %>
+
+    <hr>
+
+    <%= return_model_index_button("Retour vers messages", messages_path) %>
+
+</div>

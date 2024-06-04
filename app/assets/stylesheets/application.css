@@ -57,7 +57,7 @@
 body {
   background-image: url('svgs/bg-landing.svg');
   background-size: cover; /* Adjust this to your preference */
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-position: center center; /* Adjust this to your preference */
 }
 
@@ -78,4 +78,18 @@ h3{
   right: 0;
   background-color: rgba(255, 255, 255, 0.5); /* Set background color to white with 0.7 (70%) opacity */
   z-index: 2; /* Higher z-index to render above content */
+}
+
+.navbar-item{
+  color: rgb(160, 156, 156);
+  text-decoration: none;
+}
+
+.selected-navbar{
+  color: rgb(77, 77, 76);
+}
+
+.card-connexion{
+  width: 90%;
+  max-width: 500px;
 }

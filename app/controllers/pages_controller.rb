@@ -5,4 +5,7 @@ class PagesController < ApplicationController
         @messages = Message.all
     end
 
+    def about
+    end
+
 end
