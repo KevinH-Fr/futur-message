@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     this.updateTimer();
     this.interval = setInterval(() => this.updateTimer(), 1000);
-  //  console.log(this.data.get("eventDate"));
+    console.log(this.data.get("eventDate"));
   }
 
   disconnect() {
@@ -20,7 +20,7 @@ export default class extends Controller {
     const targetDate = new Date(dateStr);
     
     const currentDate = new Date();
-    //console.log(currentDate);
+    console.log(currentDate);
 
         
     const timeRemaining = new Date(targetDate - currentDate);

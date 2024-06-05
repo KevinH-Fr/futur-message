@@ -16,6 +16,7 @@ export default class extends Controller {
 
   updateTime() {
     const currentTime = new Date()
+    console.log("current time :" + currentTime);
     this.counterTarget.innerText = currentTime.toLocaleTimeString()
   }
 }
