@@ -2,21 +2,20 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["currentTime"]
+  static targets = [ "counter" ]
 
   connect() {
+    console.log("timecounter connected");
     this.updateTime()
-    this.timer = setInterval(() => {
-      this.updateTime()
-    }, 1000)
+    this.interval = setInterval(() => this.updateTime(), 1000)
   }
 
   disconnect() {
-    clearInterval(this.timer)
+    clearInterval(this.interval)
   }
 
   updateTime() {
     const currentTime = new Date()
-    this.currentTimeTarget.innerText = currentTime.toLocaleTimeString()
+    this.counterTarget.innerText = currentTime.toLocaleTimeString()
   }
 }
