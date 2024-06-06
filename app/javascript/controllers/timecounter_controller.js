@@ -16,10 +16,11 @@ export default class extends Controller {
   updateTime() {
     const currentTime = new Date();
     console.log("current time :" + currentTime);
-    const options = {
-      hour12: false, // Use 24-hour format
-      timeZone: "UTC" // Set time zone explicitly
-    };
-    this.counterTarget.innerText = currentTime.toLocaleTimeString("en-US", options);
+    
+    const hours = String(currentTime.getUTCHours()).padStart(2, "0");
+    const minutes = String(currentTime.getUTCMinutes()).padStart(2, "0");
+    const seconds = String(currentTime.getUTCSeconds()).padStart(2, "0");
+
+    this.counterTarget.innerText = `${hours}:${minutes}:${seconds}`;
   }
 }
