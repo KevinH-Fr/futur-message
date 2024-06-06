@@ -2,7 +2,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "counter" ]
+
+  static get targets() {
+    return [ "counter" ]
+  }
 
   connect() {
     console.log("timecounter connected");
