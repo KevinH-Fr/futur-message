@@ -1,22 +1,25 @@
-// app/javascript/controllers/time_controller.js
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "counter" ]
+  static targets = ["counter"];
 
   connect() {
     console.log("timecounter connected");
-    this.updateTime()
-    this.interval = setInterval(() => this.updateTime(), 1000)
+    this.updateTime();
+    this.interval = setInterval(() => this.updateTime(), 1000);
   }
 
   disconnect() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   }
 
   updateTime() {
-    const currentTime = new Date()
+    const currentTime = new Date();
     console.log("current time :" + currentTime);
-    this.counterTarget.innerText = currentTime.toLocaleTimeString()
+    const options = {
+      hour12: false, // Use 24-hour format
+      timeZone: "UTC" // Set time zone explicitly
+    };
+    this.counterTarget.innerText = currentTime.toLocaleTimeString("en-US", options);
   }
 }
