@@ -1,8 +1,12 @@
 class MessagesController < ApplicationController
 
+  include MessagesHelper
+  
   before_action :authenticate_user!
 
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authorize_sender, only: [:edit, :update, :destroy]
+
 
   # GET /messages or /messages.json
   def index
@@ -76,6 +80,13 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:title, :content, :sender_id, :receiver_id, :sent_at)
+      params.require(:message).permit(:title, :content, :sender_id, :receiver_id, :sent_at, :document)
     end
+
+    def authorize_sender
+      unless user_is_sender?(@message)
+        redirect_to messages_path, alert: 'You are not authorized to edit this message.'
+      end
+    end
+
 end

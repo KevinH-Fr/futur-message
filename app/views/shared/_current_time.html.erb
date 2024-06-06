@@ -1,26 +1,12 @@
-<div class="container text-center">
-    <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
-        <i class="fa fa-lg fa-clock me-1"></i>
-        <span id="current-time">00:00:00</span>
-    </div> 
-</div>
-
-
-
-  <script type="text/javascript">
-    function updateTime() {
-      var currentTime = new Date();
-      document.getElementById('current-time').innerText = currentTime.toLocaleTimeString();
-    }
-
-    setInterval(updateTime, 1000);
-    updateTime(); // Initial call to set the time immediately
-  </script>
-
-
-  <div class="container text-center" data-controller="timecounter">
-    <div class="badge bg-secondary text-light p-2" style="min-width: 140px;">
-      <i class="fa fa-lg fa-clock me-1"></i>
-      <span data-timecounter-target="counter"></span>
-    </div> 
+<div class="container text-secondary m-1 fs-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col p-0 m-0">
+      <div class="container text-center" data-controller="timecounter">
+        <div class="badge text-secondary p-2" style="min-width: 120px;">
+          <i class="fa fa-lg fa-clock m-1"></i>
+          <div data-timecounter-target="counter" class="my-2">00:00:00</div>
+        </div> 
+      </div>
+    </div>
   </div>
+</div>

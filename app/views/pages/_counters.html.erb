@@ -1,13 +1,13 @@
 
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center d-flex fs-5">
 
     <div class="container text-secondary m-1 fs-6 mb-2">
         <div class="row align-items-center justify-content-center">
             <div class="col p-0 m-0">
                 <i class="fa fa-message"></i>
-                <span> messages </span>
-                <span data-controller="counter" data-target-value="<%= @messages.count %>"></span>
+                <div> messages </div>
+                <div data-controller="counter" data-target-value="<%= @messages.count %>"></div>
             </div>
         </div>
     </div>
@@ -16,10 +16,14 @@
         <div class="row align-items-center justify-content-center">
             <div class="col p-0 m-0">
                 <i class="fa fa-user-group"></i>
-                <span> utilisateurs </span>
-                <span data-controller="counter" data-target-value="<%= @users.count %>"></span>
+                <div> utilisateurs </div>
+                <div data-controller="counter" data-target-value="<%= @users.count %>"></div>
             </div>
         </div>
     </div>
+    
+    <%= render 'shared/current_time' %>
 
 </div>
+
+

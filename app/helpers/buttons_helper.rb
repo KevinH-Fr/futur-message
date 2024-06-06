@@ -1,7 +1,7 @@
 module ButtonsHelper
     def custom_submit_button(form, text)
-      content_tag(:div, class: "container-fluid p-2 p-0 text-end") do
-        button_tag(type: "submit", class: "btn w-25 bg-success text-light fw-bold") do
+      content_tag(:div, class: "container-fluid p-0") do
+        button_tag(type: "submit", class: "btn w-100 btn-outline-success fw-bold") do
           concat content_tag(:i, "", class: "fa-solid fa-xl fa-check-circle me-2")
           concat content_tag(:span, text, class: "fw-bold")
         end

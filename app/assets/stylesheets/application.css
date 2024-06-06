@@ -15,7 +15,7 @@
  */
 
  .exclusive-post {
-    filter: blur(20px); /* Adjust the blur intensity as needed */
+    filter: blur(10px); /* Adjust the blur intensity as needed */
   }
 
 

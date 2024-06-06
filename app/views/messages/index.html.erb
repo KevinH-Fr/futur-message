@@ -11,35 +11,42 @@
     <div class="row gx-1">
       <div class="col">
       <div class="p-1 border bg-light">
-          total
-        <span class="badge bg-secondary"> 
+          tous
+        <span class="ms-1 badge bg-secondary"> 
           <%= @messages.count %>
         </span> 
       </div>
       </div>
       <div class="col">
-        <div class="p-1 border bg-light">
-          past
-          <span class="badge bg-secondary"> 
-            <%= @past_messages.count %>
-          </span> 
-        </div>
+        <%= link_to "#pases", class: "text-decoration-none text-dark" do %>
+          <div class="p-1 border bg-light">
+            passés
+            <span class="ms-1 badge bg-secondary"> 
+              <%= @past_messages.count %>
+            </span> 
+          </div>
+        <% end %>
       </div>
+
       <div class="col">
-        <div class="p-1 border bg-light">
-          to come
-          <span class="badge bg-secondary  <%= 'bg-danger' if @upcoming_messages.count > 0 %> "> 
-            <%= @upcoming_messages.count %>
-          </span> 
-        </div>
+        <%= link_to "#avenir", class: "text-decoration-none text-dark" do %>
+          <div class="p-1 border bg-light">
+            à venir
+            <span class="ms-1 badge bg-secondary  <%= 'bg-danger' if @upcoming_messages.count > 0 %> "> 
+              <%= @upcoming_messages.count %>
+            </span> 
+          </div>
+        <% end %>
       </div>
+      
+      
     </div>
   </div>
 
   <%= link_to new_message_path, 
         class: "btn btn-primary fw-bold w-100 my-3" do %>
     <i class="fa-regular fa-pen-to-square"></i>
-    <span> Send new message </span> 
+    <span> Envoyer un message </span> 
   <% end %>
 
 
@@ -47,7 +54,7 @@
   <hr>
 
   <h2>
-    Past
+    Passés
     <span class="badge bg-secondary"> 
       <%= @past_messages.count %>
     </span> 
@@ -61,8 +68,8 @@
 
   <hr>
 
-  <h2>
-    To come
+  <h2 id="avenir">
+    A venir
     <span class="badge bg-secondary <%= 'bg-danger' if @upcoming_messages.count>0 %>">
       <%= @upcoming_messages.count %>
     </span> 

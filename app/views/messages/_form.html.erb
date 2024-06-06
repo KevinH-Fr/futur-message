@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="input-group input-group mb-2">
-    <%= form.label :title, class: "input-group-text" %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.label :title, "Objet", class: "input-group-text" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Optionnel"  %>
   </div>
 
   <div class="input-group input-group mb-2">
@@ -36,6 +36,12 @@
     <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
     <%= form.datetime_field :sent_at, class: "form-control date" %>
   </div>
+
+  <div class="input-group input-group mb-2">
+    <%= form.label :document, class: "input-group-text" %>
+    <%= form.file_field :document, class: "form-control file" %>
+  </div>
+
 
   <%= custom_submit_button(form, "Envoyer") %>
 

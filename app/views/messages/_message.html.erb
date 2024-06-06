@@ -35,15 +35,31 @@
       <% end %>
       
     </div>
+
+
+    <% if message.document.attached? %>
+      <% if message.document.content_type.start_with?('image/') %>
+        <p>
+          <strong>Document:</strong>
+          <%= image_tag url_for(message.document) %>
+        </p>
+      <% else %>
+        <p>
+          <strong>Document:</strong>
+          <%= link_to message.document.filename, url_for(message.document) %>
+        </p>
+      <% end %>
+    <% end %>
+
   </div>
   
   <% if message.upcoming? %>
       <p>
         message de <strong> <%= message.sender.name_or_mail %> </strong>
-        Openable in
-        <span class="badge bg-primary text-light p-2 my-2" style="min-width: 140px;">
+        <span class="badge bg-primary w-100 text-light p-2 my-2" style="min-width: 140px;">
             <span data-controller="countdown" data-countdown-event-date="<%= message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + message.sent_at.strftime('%:z') %>">
                 <i class="fa fa-lg fa-clock me-1"> </i>
+                <span> Openable in </span>
                 <span data-countdown-target="timer">00:00:00</span>
             </span>
         </span>
