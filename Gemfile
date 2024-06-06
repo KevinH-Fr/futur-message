@@ -77,5 +77,3 @@ gem 'cloudinary'
 
 gem 'requestjs-rails'
 gem 'jquery-rails'
-
-gem "local_time"
