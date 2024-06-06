@@ -21,6 +21,6 @@ export default class extends Controller {
     const minutes = String(currentTime.getUTCMinutes()).padStart(2, "0");
     const seconds = String(currentTime.getUTCSeconds()).padStart(2, "0");
 
-    this.counterTarget.innerText = `${hours}:${minutes}:${seconds}`;
+    this.counterTarget.innerText = "test value";
   }
 }
