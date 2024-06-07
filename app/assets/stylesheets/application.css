@@ -93,3 +93,23 @@ h3{
   width: 90%;
   max-width: 500px;
 }
+
+/* ANIMATIONS */
+
+.scroll-animate {
+  will-change: transform, opacity;
+  opacity: 0; /* Initial state before animation */
+}
+
+.scroll-appear {
+  will-change: opacity;
+  opacity: 0; /* Initial state before animation */
+}
+
+
+.scroll-tracker {
+  position: fixed;
+  inset: 0;
+  height: 0.5rem;
+  background-color: aqua;
+ }

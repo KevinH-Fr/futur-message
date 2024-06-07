@@ -9,3 +9,7 @@ import "jquery_ujs"
 
 import LocalTime from "local-time"
 LocalTime.start()
+
+
+// Import Scroll Timeline functionality
+import "scroll_timeline";
