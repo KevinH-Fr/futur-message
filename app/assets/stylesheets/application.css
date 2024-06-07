@@ -106,10 +106,8 @@ h3{
   opacity: 0; /* Initial state before animation */
 }
 
+.scroll-slide-right {
+  will-change: transform;
+  transform: translateX(-100%); /* Initial state before animation */
+}
 
-.scroll-tracker {
-  position: fixed;
-  inset: 0;
-  height: 0.5rem;
-  background-color: aqua;
- }
