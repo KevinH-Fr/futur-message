@@ -20,7 +20,7 @@ export default class extends Controller {
     const targetDate = new Date(dateStr);
     
     const currentDate = new Date();
-    console.log(currentDate);
+   // console.log(currentDate);
 
         
     const timeRemaining = new Date(targetDate - currentDate);
@@ -32,9 +32,20 @@ export default class extends Controller {
 
     this.timerTarget.innerText = `${days} days ${hours} : ${minutes} : ${seconds}`;
 
+    
+    
     if (timeRemaining <= 0) {
       this.timerTarget.innerText = "Finished";
       clearInterval(this.interval);
+      this.reloadPartialIfVisible();
     }
   }
+
+  reloadPartialIfVisible() {
+    console.log("call reload1");
+    if (this.element.offsetParent !== null) {  // Check if the element is visible
+      window.location.reload(true)
+    }
+  }
+
 }

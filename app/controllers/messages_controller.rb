@@ -17,6 +17,10 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    respond_to do |format|
+      format.html
+     # format.turbo_stream
+    end
   end
 
   # GET /messages/new
@@ -45,19 +49,6 @@ class MessagesController < ApplicationController
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-
-  def step1
-    @message = Message.new
-  end
-
-  def step2
-    @message = Message.new(message_params_step1)
-  end
-
-  def step3
-    @message = Message.new(message_params_step1.merge(message_params_step2))
   end
 
 

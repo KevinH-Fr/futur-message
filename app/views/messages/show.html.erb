@@ -4,6 +4,9 @@
 
   <%= render @message %>
 
+  <%= turbo_stream.update dom_id(@message), partial: 'messages/message', locals: { message: @message } %>
+
+
   <% if user_is_sender?(@message) %>
     
     <div class="d-flex align-items-center"> 
