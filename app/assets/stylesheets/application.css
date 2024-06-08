@@ -54,11 +54,21 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+
 body {
   background-image: url('svgs/bg-landing.svg');
   background-size: cover; /* Adjust this to your preference */
   background-repeat: no-repeat;
   background-position: center center; /* Adjust this to your preference */
+}
+
+h1{
+  font-family:Georgia, 'Times New Roman', Times, serif ;
 }
 
 h3{
@@ -111,3 +121,49 @@ h3{
   transform: translateX(-100%); /* Initial state before animation */
 }
 
+.bg-paper{
+  background-color: rgb(236, 234, 211);
+}
+
+
+
+
+.background-image {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust height as needed */
+  overflow: hidden; /* Ensures the image fits within the div */
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire div */
+  z-index: -1; /* Places the image behind the text */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.text-overlay .input-group {
+  height: 100%;
+}
+
+.text-overlay .form-control {
+  width: 100%;
+  height: 100%;
+  resize: none; /* Prevents manual resizing of the textarea */
+  box-sizing: border-box;
+  background: transparent;
+  color: white; /* Ensure text is visible */
+}
