@@ -11,45 +11,95 @@
     </div>
   <% end %>
 
-    <div class="background-image shadow">
-        <%= image_tag '/images/letter_bg.png', class: 'background-img', alt: 'Background Image' %>
 
-        <div class="text-overlay w-100 px-4">
+  <div class="accordion accordion-flush p-2" id="accordionFlushExample">
+    <div class="accordion-item ">
+      <h2 class="accordion-header bg-white-transparency" id="flush-headingOne">
+        <button class="accordion-button collapsed bg-white-transparency" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <i class="fa fa-pen-nib me-2"></i>
+          Ecrire mon message
+        </button>
+      </h2>
+      
+      <%= image_tag '/images/letter_bg.png', class: 'background-img', alt: 'Background Image' %>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        
+              <%= image_tag '/images/letter_bg.png', class: 'background-img', alt: 'Background Image' %>
 
-          <div class="input-group input-group mb-2">
-            <%#= form.label :content, class: "input-group-text" %>
-            <%= form.text_area :content, class: "form-control bg-transparent text-dark", 
-                  placeholder: "Ecrivez votre message..." %>
+          <div class="background-image shadow">
+
+              <div class="text-overlay w-100 px-4">
+
+                <div class="input-group input-group mb-2">
+                  <%#= form.label :content, class: "input-group-text" %>
+                  <%= form.text_area :content, class: "form-control bg-transparent text-dark", 
+                        placeholder: "Ecrivez votre message..." %>
+                </div>
+
+              </div>
           </div>
 
         </div>
+      </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          <i class="fa fa-photo-film me-2"></i>
+          Ajouter titre et contenu
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">        
+          <div class="input-group input-group mb-2">
+            <%= form.label :title, "Objet", class: "input-group-text" %>
+            <%= form.text_field :title, class: "form-control", placeholder: "Optionnel"  %>
+          </div>
 
-    <div class="input-group input-group mb-2">
-      <%= form.label :title, "Objet", class: "input-group-text" %>
-      <%= form.text_field :title, class: "form-control", placeholder: "Optionnel"  %>
+          <div class="input-group input-group mb-2">
+            <%= form.label :document, class: "input-group-text" %>
+            <%= form.file_field :document, class: "form-control file" %>
+          </div>  
+        </div>
+      
+      </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <i class="fa fa-user-gear me-2"></i>
 
-      <%#= form.label :sender_id, "Sender", class: "input-group-text" %>
-      <%#= form.text_field :sender_id, value: current_user.name, readonly: true, class: 'form-control' %>
-      <%= form.hidden_field :sender_id, value: current_user.id %>
+          Définir paramètres d'envoi
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        
+            <%#= form.label :sender_id, "Sender", class: "input-group-text" %>
+            <%#= form.text_field :sender_id, value: current_user.name, readonly: true, class: 'form-control' %>
+            <%= form.hidden_field :sender_id, value: current_user.id %>
 
-    <div class="input-group input-group mb-2">
-      <%= form.label :receiver_id, class: "input-group-text" %>
-      <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
-      { include_blank: 'Sélectionner', selected: params[:receiver_id] },  class: "form-select" %>
+          <div class="input-group input-group mb-2">
+            <%= form.label :receiver_id, class: "input-group-text" %>
+            <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
+            { include_blank: 'Sélectionner', selected: params[:receiver_id] },  class: "form-select" %>
+          </div>
+
+
+          <div class="input-group input-group mb-2">
+            <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
+            <%= form.datetime_field :sent_at, class: "form-control date" %>
+          </div>
+         
+        </div>
+      </div>
     </div>
+  </div>
 
 
-    <div class="input-group input-group mb-2">
-      <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
-      <%= form.datetime_field :sent_at, class: "form-control date" %>
-    </div>
+<br> <br>
 
-    <div class="input-group input-group mb-2">
-      <%= form.label :document, class: "input-group-text" %>
-      <%= form.file_field :document, class: "form-control file" %>
-    </div>
 
   <%= custom_submit_button(form, "Envoyer") %>
 

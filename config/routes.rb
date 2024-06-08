@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'steps_message/content'
+  get 'steps_message/media'
+  get 'steps_message/send_parameters'
+
   resources :messages
+  
   devise_for :users
   resources :users, only: [:index]
 
