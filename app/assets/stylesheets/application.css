@@ -175,3 +175,39 @@ h3{
 .letter-background {
   background-color: rgb(240, 240, 237);
 }
+
+
+/* Define the keyframes for the fade-in and fade-out animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* Initially, elements are hidden */
+.scroll-appear {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Add this class when the element is in view */
+.scroll-appear.in-view {
+  animation: fadeIn 2s forwards;
+}
+
+/* Add this class when the element is out of view */
+.scroll-appear.out-of-view {
+  animation: fadeOut 2s forwards;
+}
