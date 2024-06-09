@@ -171,3 +171,7 @@ h3{
   background: transparent;
   color: white; /* Ensure text is visible */
 }
+
+.letter-background {
+  background-color: rgb(240, 240, 237);
+}

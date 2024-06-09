@@ -1,41 +1,39 @@
-<div class="card p-2 mb-3" id="<%= dom_id message %>">
+<div class="card letter-backougrnd p-2 mb-3" id="<%= dom_id message %>">
 
-  <div class="<%= 'exclusive-post' if message.upcoming? %>"> 
-  
-    <p>
-      <strong>Title:</strong>
-      <%= message.title %>
-    </p>
-
-    <p>
-      <strong>Content:</strong>
-      <%= message.content %>
-    </p>
-
-    <p>
-      <strong>Sender:</strong>
-      <%= message.sender.name %>
-    </p>
-
-    <p>
-      <strong>Receiver:</strong>
-      <%= message.receiver.name %>
-    </p>
-
-    <p>
-      <strong>Sent at:</strong>
-      <%= message.sent_at %> 
-    </p>
-
-
-    <div class="text-end">
-      <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
-        <i class="fa fa-envelope-open"></i>
-        <span class="fw-bold">Open</span>
-      <% end %>
+  <%= link_to message_path(message), class: "text-decoration-none text-dark" do %>
+    <div class="<%= 'exclusive-post' if message.upcoming? %>"> 
+    
+      <p>
+        Message de 
+        <strong><%= message.sender.name %> </strong>
+        pour 
+      <strong><%= message.receiver.name %> </strong>
+        Lisible depuis le <strong> <%= l(message.sent_at) %> </strong> 
+      </p>
       
-    </div>
+      <% if message.title? %>
+        <p>
+          <strong>Objet:</strong>
+          <%= message.title %>
+        </p>      
+      <% end %>
 
+      <p>
+        <strong>Message:</strong>
+        <%= message.content %>
+      </p>
+
+
+      <div class="text-end">
+        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
+          <i class="fa fa-envelope-open"></i>
+          <span class="fw-bold">Open</span>
+        <% end %>
+        
+      </div>
+    
+    <% end %>
+    
 
     <% if message.document.attached? %>
       <% if message.document.content_type.start_with?('image/') %>
