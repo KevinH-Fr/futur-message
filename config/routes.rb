@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   get 'steps_message/content'
   get 'steps_message/media'
   get 'steps_message/send_parameters'

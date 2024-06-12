@@ -23,14 +23,6 @@
         <%= message.content %>
       </p>
 
-
-      <div class="text-end">
-        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
-          <i class="fa fa-envelope-open"></i>
-          <span class="fw-bold">Open</span>
-        <% end %>
-        
-      </div>
     
     <% end %>
     
@@ -51,24 +43,26 @@
 
   </div>
   
-  <% if message.upcoming? %>
+  <%# if message.upcoming? %>
+
+        <div class="text-end">
+        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
+          <i class="fa fa-envelope-open"></i>
+          <span class="fw-bold">Open</span>
+        <% end %>
+        
+      </div>
+
       <p>
         message de <strong> <%= message.sender.name_or_mail %> </strong>
-        <span class="badge bg-primary w-100 text-light p-2 my-2" style="min-width: 140px;">
+        <span class="badge bg-secondary w-100 text-light p-2 my-2" style="min-width: 140px;">
             <span data-controller="countdown" data-countdown-event-date="<%= message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + message.sent_at.strftime('%:z') %>">
                 <i class="fa fa-lg fa-clock me-1"> </i>
-                <span> Openable in </span>
                 <span data-countdown-target="timer">00:00:00</span>
             </span>
         </span>
       </p>
 
-  <% end %>
-
-
-<div id="partial-container">
-  <%= render 'shared/content_to_load' %>
-</div>
-
+  <%# end %>
 
 </div>

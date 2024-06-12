@@ -78,34 +78,35 @@ class MessagesController < ApplicationController
     end
   end
 
-  def update_content
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: 
-          turbo_stream.update(
-            'partial-container', 
-            partial: 'shared/content_to_load'
-          )
-      end
-      format.html { render partial: 'shared/content_to_load' } # Ensure compatibility with non-Turbo requests
-    end
-  end
+  # def update_content
+  #   respond_to do |format|
+  #     format.turbo_stream do
+  #       render turbo_stream: 
+  #         turbo_stream.update(
+  #           'partial-container', 
+  #           partial: 'shared/content_to_load'
+  #         )
+  #     end
+  #     format.html { render partial: 'shared/content_to_load' } # Ensure compatibility with non-Turbo requests
+  #   end
+  # end
 
-  def reload_content
-    @message = Message.find(1)
+  # def reload_content
 
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: 
-          turbo_stream.update(
-            'partial-container', 
-            partial: 'messages/message',
-            locals: { message: @message }
-          )
-      end
-      format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests
-    end
-  end
+  #   @message = Message.find(1)
+
+  #   respond_to do |format|
+  #     format.turbo_stream do
+  #       render turbo_stream: 
+  #         turbo_stream.update(
+  #           'partial-container', 
+  #           partial: 'messages/message',
+  #           locals: { message: @message }
+  #         )
+  #     end
+  #     format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

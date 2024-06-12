@@ -4,8 +4,6 @@
 
   <%= render @message %>
 
-  <%= turbo_stream.update dom_id(@message), partial: 'messages/message', locals: { message: @message } %>
-
 
   <% if user_is_sender?(@message) %>
     
@@ -33,17 +31,3 @@
 </div>
 
 
-<div>
-
-<%= @message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + @message.sent_at.strftime('%:z') %>
-
-  initial: <%= Time.now %>  
-  
-<div data-controller="update" data-update-url-value="<%= update_content_messages_path %>"
-     data-update-event-date-value="<%= @message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + @message.sent_at.strftime('%:z') %>">
-  <!-- Content to be updated -->
-  <button data-action="click->update#callTurboStreamAction">Update Content</button>
-</div>
-
-
-</div>

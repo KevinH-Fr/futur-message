@@ -85,7 +85,7 @@
           <div class="input-group input-group mb-2">
             <%= form.label :receiver_id, class: "input-group-text" %>
             <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
-            { include_blank: 'Sélectionner', selected: params[:receiver_id] },  class: "form-select" %>
+            { include_blank: 'Sélectionner', selected: message.receiver_id },  class: "form-select" %>
           </div>
 
 
