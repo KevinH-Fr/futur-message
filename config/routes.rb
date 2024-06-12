@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :messages do 
     collection do
+      post 'update_content'
       post 'reload_content'
 
     end

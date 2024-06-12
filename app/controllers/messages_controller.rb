@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   
   before_action :authenticate_user!
 
-  before_action :set_message, only: %i[ show edit update destroy reload_content ]
+  before_action :set_message, only: %i[ show edit update destroy ]
   before_action :authorize_sender, only: [:edit, :update, :destroy]
 
 
@@ -78,13 +78,29 @@ class MessagesController < ApplicationController
     end
   end
 
-  def reload_content
+  def update_content
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: 
           turbo_stream.update(
             'partial-container', 
-            partial: 'messages/message'
+            partial: 'shared/content_to_load'
+          )
+      end
+      format.html { render partial: 'shared/content_to_load' } # Ensure compatibility with non-Turbo requests
+    end
+  end
+
+  def reload_content
+    @message = Message.find(1)
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: 
+          turbo_stream.update(
+            'partial-container', 
+            partial: 'messages/message',
+            locals: { message: @message }
           )
       end
       format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests

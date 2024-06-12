@@ -32,10 +32,18 @@
 
 </div>
 
+
 <div>
 
-  <%= button_to 'reload partial', reload_content_messages_path, method: :post %>
+<%= @message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + @message.sent_at.strftime('%:z') %>
 
+  initial: <%= Time.now %>  
+  
+<div data-controller="update" data-update-url-value="<%= update_content_messages_path %>"
+     data-update-event-date-value="<%= @message.sent_at.strftime('%Y-%m-%dT%H:%M:%S') + @message.sent_at.strftime('%:z') %>">
+  <!-- Content to be updated -->
+  <button data-action="click->update#callTurboStreamAction">Update Content</button>
 </div>
 
 
+</div>
