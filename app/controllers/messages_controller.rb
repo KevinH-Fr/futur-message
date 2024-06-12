@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   
   before_action :authenticate_user!
 
-  before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_message, only: %i[ show edit update destroy reload_content ]
   before_action :authorize_sender, only: [:edit, :update, :destroy]
 
 
@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html
      # format.turbo_stream
+
     end
   end
 
@@ -74,6 +75,19 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def reload_content
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: 
+          turbo_stream.update(
+            'partial-container', 
+            partial: 'messages/message'
+          )
+      end
+      format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests
     end
   end
 

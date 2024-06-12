@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   get 'steps_message/media'
   get 'steps_message/send_parameters'
 
-  resources :messages
-  
+  resources :messages do 
+    collection do
+      post 'reload_content'
+
+    end
+  end
+
   devise_for :users
   resources :users, only: [:index]
 

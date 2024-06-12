@@ -42,10 +42,10 @@ export default class extends Controller {
   }
 
   reloadPartialIfVisible() {
-    console.log("call reload1");
+   /* console.log("call reload1");
     if (this.element.offsetParent !== null) {  // Check if the element is visible
       window.location.reload(true)
-    }
+    }*/
   }
 
 }
