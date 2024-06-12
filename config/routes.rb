@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+    post 'messages/send_email', to: 'messages#send_email', as: 'send_email'
+
   devise_for :users
   resources :users, only: [:index]
 

@@ -8,21 +8,27 @@
         <strong><%= message.sender.name %> </strong>
         pour 
       <strong><%= message.receiver.name %> </strong>
-        Lisible depuis le <strong> <%= l(message.sent_at) %> </strong> 
+
       </p>
-      
-      <% if message.title? %>
+      <p>  
+        Lisible depuis le <strong> <%= l(message.sent_at) %>   </strong>
+      </p>
+
+      <% if controller_name == "messages" && action_name == "show" %>
+        
+        <% if message.title? %>
+          <p>
+            <strong>Objet:</strong>
+            <%= message.title %>
+          </p>      
+        <% end %>
+
         <p>
-          <strong>Objet:</strong>
-          <%= message.title %>
-        </p>      
+          <strong>Message:</strong>
+          <%= message.content %>
+        </p>
+
       <% end %>
-
-      <p>
-        <strong>Message:</strong>
-        <%= message.content %>
-      </p>
-
     
     <% end %>
     
@@ -43,16 +49,7 @@
 
   </div>
   
-  <%# if message.upcoming? %>
-
-        <div class="text-end">
-        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
-          <i class="fa fa-envelope-open"></i>
-          <span class="fw-bold">Open</span>
-        <% end %>
-        
-      </div>
-
+  <% if message.upcoming? %>
       <p>
         message de <strong> <%= message.sender.name_or_mail %> </strong>
         <span class="badge bg-secondary w-100 text-light p-2 my-2" style="min-width: 140px;">
@@ -62,7 +59,17 @@
             </span>
         </span>
       </p>
+  <% end %>
 
-  <%# end %>
+        <div class="text-end">
+        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
+          <i class="fa fa-envelope-open"></i>
+          <span class="fw-bold">Open</span>
+        <% end %>
+        
+      </div>
+
+
+
 
 </div>

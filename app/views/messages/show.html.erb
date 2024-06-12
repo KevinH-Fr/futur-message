@@ -24,6 +24,13 @@
 
   <% end %>
 
+  <!-- app/views/users/show.html.erb or any appropriate view -->
+  <%= form_with url: send_email_path, method: :post do %>
+    <%= hidden_field_tag :message, @message.id %>
+    <%= submit_tag 'Send Welcome Email' %>
+  <% end %>
+
+
   <hr>
 
   <%= return_model_index_button("Retour vers messages", messages_path) %>

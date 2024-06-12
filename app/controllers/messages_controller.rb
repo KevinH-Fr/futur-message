@@ -78,6 +78,13 @@ class MessagesController < ApplicationController
     end
   end
 
+  def send_email
+    @message = Message.find(params[:message])
+    #@user = User.find(params[:receiver_id]) # Or however you get the @user object
+    MessageMailer.welcome_email(@message.receiver_id).deliver_now
+    redirect_to message_path(@message.id), notice: 'Email sent successfully!'
+  end
+
   # def update_content
   #   respond_to do |format|
   #     format.turbo_stream do
