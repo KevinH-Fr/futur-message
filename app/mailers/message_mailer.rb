@@ -10,17 +10,20 @@ class MessageMailer < ApplicationMailer
 
     def sender_delivered_email(message)
       @message = Message.find(message)
+      @url = "https://futur-message-ecb35003e1a0.herokuapp.com/"
       subject = 
       mail(to: @message.sender.email, subject: 'Votre message a bien été envoyé')
     end
 
     def receiver_scheduled_email(message)
       @message = Message.find(message)
+      @url = "https://futur-message-ecb35003e1a0.herokuapp.com/"
       mail(to: @message.receiver.email, subject: "Vous message pour le futur")
     end
 
     def receiver_delivered_email(message)
       @message = Message.find(message)
+      @url = "https://futur-message-ecb35003e1a0.herokuapp.com/"
       mail(to: @message.receiver.email, subject: 'Votre nouveau message est lisible')
     end
 
