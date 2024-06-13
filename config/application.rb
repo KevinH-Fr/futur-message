@@ -26,6 +26,8 @@ module FuturMessage
 
     config.i18n.default_locale = :fr
 
+    config.active_job.queue_adapter = :async
+
 
   end
 end

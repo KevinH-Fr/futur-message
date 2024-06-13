@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
   before_action :authorize_sender, only: [:edit, :update, :destroy]
 
-
   # GET /messages or /messages.json
   def index
     @messages = Message.where(receiver_id: current_user.id)
@@ -78,6 +77,18 @@ class MessagesController < ApplicationController
     end
   end
 
+  def schedule_email
+
+    @message = Message.find(params[:message])
+    send_time = @message.sent_at
+    
+    # Schedule the email using Active Job
+    EmailJob.set(wait_until: send_time).perform_later(@message.id)
+    
+    redirect_to message_path(@message.id), notice: 'Email scheduled successfully!'
+
+  end
+
   def send_email
     @message = Message.find(params[:message])
     #@user = User.find(params[:receiver_id]) # Or however you get the @user object
@@ -131,5 +142,6 @@ class MessagesController < ApplicationController
         redirect_to messages_path, alert: 'You are not authorized to edit this message.'
       end
     end
+
 
 end
