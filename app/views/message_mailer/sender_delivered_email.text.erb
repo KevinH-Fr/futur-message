@@ -1,0 +1,8 @@
+Votre message a bien été envoyé !
+
+Le message sur l'adresse <%= @message.receiver.email %> a bien été envoyé le <%= @message.sent_at %>
+
+Votre message :
+<%= @message.content %>
+
+Pour vous connectez : <%= link_to 'FuturMessage', @url %>.

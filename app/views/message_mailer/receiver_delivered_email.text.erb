@@ -1,0 +1,7 @@
+Votre nouveau message est lisible !
+Le message de <%= @message.sender.email %> en enfin lisible depuis le <%= @message.sent_at %>
+
+Votre message :
+<%= @message.content %>
+
+Pour vous connectez : <%= link_to 'FuturMessage', @url %>.

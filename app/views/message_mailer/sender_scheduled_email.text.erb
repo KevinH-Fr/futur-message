@@ -1,0 +1,7 @@
+L'envoi de votre message a bien été programmé !
+
+Le message sur l'adresse <%= @message.receiver.email %> sera envoyé le <%= @message.sent_at %>
+
+Votre message :  <%= @message.content %>
+
+Pour vous connectez : <%= link_to 'FuturMessage', @url %>.

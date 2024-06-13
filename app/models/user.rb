@@ -11,8 +11,19 @@ class User < ApplicationRecord
  
   validates :name, presence: true
 
+  after_create :send_welcome_email
+
+
   def name_or_mail
     self.name? ? name : email
   end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
+  
+  
 end
 

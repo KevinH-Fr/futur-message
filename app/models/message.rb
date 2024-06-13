@@ -15,6 +15,7 @@ class Message < ApplicationRecord
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
   
   after_save :schedule_email, if: :saved_change_to_sent_at?
+  after_save :deliver_email
 
   def past?
     sent_at <= Time.current
@@ -26,6 +27,11 @@ class Message < ApplicationRecord
   
   
   private
+
+  def deliver_email
+    MessageMailer.sender_scheduled_email(self.id).deliver_later
+    MessageMailer.receiver_delivered_email(self.id).deliver_later
+  end
 
   def schedule_email
     EmailJob.set(wait_until: self.sent_at).perform_later(self.id)

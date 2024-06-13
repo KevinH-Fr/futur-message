@@ -1,0 +1,7 @@
+<h1>LVotre message pour le futur !</h1>
+<p>
+  Un peu de patience... Le message de <%= @message.sender.email %> sera envoyé le <%= @message.sent_at %>
+</p>
+<p>
+ Pour vous connectez : <%= link_to 'FuturMessage', @url %>.
+</p>
