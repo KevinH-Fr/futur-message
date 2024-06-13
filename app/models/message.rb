@@ -30,7 +30,7 @@ class Message < ApplicationRecord
 
   def deliver_email
     MessageMailer.sender_scheduled_email(self.id).deliver_later
-    MessageMailer.receiver_delivered_email(self.id).deliver_later
+    MessageMailer.receiver_scheduled_email(self.id).deliver_later
   end
 
   def schedule_email

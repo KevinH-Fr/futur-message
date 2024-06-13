@@ -3,7 +3,7 @@ class EmailJob < ApplicationJob
 
   def perform(message_id)
     message = Message.find(message_id)
-    MessageMailer.sender_scheduled_email(message.id).deliver_later
-    MessageMailer.receiver_scheduled_email(message.id).deliver_later
+    MessageMailer.sender_delivered_email(message.id).deliver_later
+    MessageMailer.receiver_delivered_email(message.id).deliver_later
   end
 end
