@@ -2,83 +2,50 @@
 
 <div class="container-fluid p-2">
 
-  <h1 class="mb-4 text-secondary">
-    <span class="fa fa-regular fa-envelope"></span>
-    Messages
+  <h1 class="mb-4 text-center text-secondary">
+    <%= link_to  messages_path, class: "text-decoration-none text-dark" do %>
+      <span class="fa fa-regular fa-envelope"></span>
+      Messages
+    <% end %>
   </h1>
 
 
-
-  <div class="container-fluid p-0 text-center">
-    <div class="row gx-1">
-      <div class="col">
+  <div class="d-flex container g-2 mb-3">
+  
+    <%= button_to display_envoyes_messages_path, class: "btn " do %>
       <div class="p-1 border bg-light">
-          tous
+        Envoyés
         <span class="ms-1 badge bg-secondary"> 
-          <%= @messages.count %>
+          <%= @send_messages.count %>
         </span> 
       </div>
-      </div>
-      <div class="col">
-        <%= link_to "#pases", class: "text-decoration-none text-dark" do %>
-          <div class="p-1 border bg-light">
-            passés
-            <span class="ms-1 badge bg-secondary"> 
-              <%= @past_messages.count %>
-            </span> 
-          </div>
-        <% end %>
-      </div>
-
-      <div class="col">
-        <%= link_to "#avenir", class: "text-decoration-none text-dark" do %>
-          <div class="p-1 border bg-light">
-            à venir
-            <span class="ms-1 badge bg-secondary  <%= 'bg-danger' if @upcoming_messages.count > 0 %> "> 
-              <%= @upcoming_messages.count %>
-            </span> 
-          </div>
-        <% end %>
-      </div>
-      
-      
-    </div>
-  </div>
-
-
-
-
-
-  <hr>
-
-  <h2>
-    Passés
-    <span class="badge bg-secondary"> 
-      <%= @past_messages.count %>
-    </span> 
-  </h2>
-
-  <div id="messages">
-    <% @past_messages.each do |message| %>
-      <%= render message %>
     <% end %>
-  </div>
 
-  <hr>
 
-  <h2 id="avenir">
-    A venir
-    <span class="badge bg-secondary <%= 'bg-danger' if @upcoming_messages.count>0 %>">
-      <%= @upcoming_messages.count %>
-    </span> 
-  </h2>
-
-  <div id="messages">
-    <% @upcoming_messages.each do |message| %>
-      <%= render message %>
+    <%= button_to display_passes_messages_path, class: "btn" do %>
+      <div class="p-1 border bg-light">
+        Recus
+        <span class="ms-1 badge bg-secondary"> 
+          <%= @past_messages.count %>
+        </span> 
+      </div>
     <% end %>
+
+
+    <%= button_to display_avenir_messages_path, class: "btn" do %>
+      <div class="p-1 border bg-light">
+        A venir
+        <span class="ms-1 badge bg-secondary"> 
+          <%= @upcoming_messages.count %>
+        </span> 
+      </div>
+    <% end %>
+
   </div>
 
+  <div id="partial-container" class="partial-topic mb-3">
+    <%# recoit le turbo stream avec elements cliqués %>
+  </div>
 
 
   <%= link_to new_message_path, 

@@ -1,0 +1,12 @@
+  <h2 id="avenir">
+    A venir
+    <span class="badge bg-secondary <%= 'bg-danger' if @upcoming_messages.count>0 %>">
+      <%= @upcoming_messages.count %>
+    </span> 
+  </h2>
+
+  <div id="messages">
+    <% @upcoming_messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  </div>

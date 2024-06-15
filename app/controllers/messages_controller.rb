@@ -10,17 +10,19 @@ class MessagesController < ApplicationController
   # GET /messages or /messages.json
   def index
     @messages = Message.where(receiver_id: current_user.id)
+    @send_messages = Message.where(sender_id: current_user.id)
+
     @past_messages = @messages.past
     @upcoming_messages = @messages.upcoming
   end
 
   # GET /messages/1 or /messages/1.json
   def show
-    respond_to do |format|
-      format.html
+   # respond_to do |format|
+   #   format.html
      # format.turbo_stream
 
-    end
+   # end
   end
 
   # GET /messages/new
@@ -125,6 +127,49 @@ class MessagesController < ApplicationController
   #     format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests
   #   end
   # end
+
+
+  def display_envoyes
+
+    @send_messages = Message.where(sender_id: current_user.id)
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update(
+          'partial-container', partial: 'messages/envoyes'
+        )
+      end
+    end
+
+  end
+
+  def display_passes
+    @messages = Message.where(receiver_id: current_user.id)
+    @past_messages = @messages.past
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update(
+          'partial-container', partial: 'messages/passes'
+        )
+      end
+    end
+
+  end
+
+  def display_avenir
+    @messages = Message.where(receiver_id: current_user.id)
+    @upcoming_messages = @messages.upcoming
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update(
+          'partial-container', partial: 'messages/avenir'
+        )
+      end
+    end
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

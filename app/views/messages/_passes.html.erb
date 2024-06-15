@@ -1,0 +1,12 @@
+  <h2>
+    Passés
+    <span class="badge bg-secondary"> 
+      <%= @past_messages.count %>
+    </span> 
+  </h2>
+
+  <div id="messages">
+    <% @past_messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  </div>

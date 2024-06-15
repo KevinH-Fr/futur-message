@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       post 'update_content'
       post 'reload_content'
 
+      post 'display_envoyes'
+      post 'display_passes'
+      post 'display_avenir'
+
     end
   end
 

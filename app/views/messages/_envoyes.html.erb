@@ -1,0 +1,12 @@
+  <h2>
+    Envoyés
+    <span class="badge bg-secondary"> 
+      <%= @send_messages.count %>
+    </span> 
+  </h2>
+
+  <div id="messages">
+    <% @send_messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  </div>
