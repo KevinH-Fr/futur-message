@@ -2,23 +2,15 @@
 
         <% if user_signed_in? %>
         
-            <div class="row">
 
-                <div class="col">
-                </div>
+            <%= link_to user_path(current_user), class:"btn btn-sm btn-ourline-secondary" do %>
+                <i class="fa-solid fa-user me-1"></i>
+                <%= current_user.name %>
 
-                <div class="col-8 text-center">
-                    <span class="fw-bold"><%= current_user.name %> </span>
-                </div>
 
-                <div class="col">
-                    <span class="container-fluid d-flex justify-content-end">
-                        <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger d-flex align-items-center" do %>
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        <% end %>
-                    </span>
-                </div>
-            </div>
+            <% end %>
+            
+            
         <% else %>
 
             <%= link_to new_user_session_path, class: "btn btn-outline-warning m-2 p-2 rounded-pill" do %>

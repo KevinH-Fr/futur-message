@@ -1,4 +1,4 @@
-<div class="card letter-backougrnd p-2 mb-3 " id="<%= dom_id message %>">
+<div class="card card-shadowed p-2 mb-3 " id="<%= dom_id message %>">
 
   <%= link_to message_path(message), class: "text-decoration-none text-dark" do %>
     <div class="<%= 'exclusive-post' if message.upcoming? %>"> 

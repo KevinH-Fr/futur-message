@@ -5,6 +5,14 @@ class UsersController < ApplicationController
     def index
       @users = User.all
     end
+
+    def show
+      @user = User.find(params[:id])
+
+      @received_messages = Message.where(receiver_id: @user.id)
+      @send_messages = Message.where(sender_id: @user.id)
+  
+    end
   
 
      # Only allow a list of trusted parameters through.

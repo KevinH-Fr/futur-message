@@ -1,8 +1,40 @@
-<div class="card m-4 p-3" id="<%= dom_id user %>">
-  <p>
-    <%= user.name ? user.name : user.email %>
-  </p>
-  <p>
-    <%= link_to  "send message", new_message_path(receiver_id: user.id), class: "btn btn-outline-primary" %>
-  </p>
+
+<h1 class="mb-4 text-center text-secondary">
+    <span class="fa fa-regular fa-user"></span>
+    Profil
+</h1>
+
+
+<div class="card card-shadowed p-2">
+
+    <p>Nom: <%= @user.name %> </p> 
+    <p>Email:  <%= @user.email %> </p>
+    <p>Date inscription:  <%= @user.name %> </p>
+    <p>Messages envoyés:  <%= @send_messages.count %> </p>
+    <p>Messages reçus:  <%= @received_messages.count %> </p>
+
+
+
+    <% if current_user && current_user == @user %>
+
+    <hr>
+    
+      <div class="container-fluid mt-4 d-flex align-items-center justify-content-center">  
+
+            <%= link_to edit_user_registration_path(@user), class: "btn btn-sm btn-secondary mx-1" do %>
+              <i class="fa fa-solid fa-xl fa-pen-to-square"></i>
+              <span>Editer</span>
+            <% end %>
+            
+            <%= button_to destroy_user_session_path, method: :delete, 
+                data: {turbo: "false"}, class: "btn btn-sm btn-danger mx-1" do %>
+                  <i class="fa fa-solid fa-xl fa-right-from-bracket"></i>
+                  <span>Déconnexion</span>
+            <% end %>
+            
+
+      </div>
+
+    <% end %>
+
 </div>

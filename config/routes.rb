@@ -31,6 +31,14 @@ Rails.application.routes.draw do
   get "home", to: "pages#home"
   get "about", to: "pages#about"
 
+
+  get 'users/show'
+  get 'users/:id' => 'users#show', as: 'user'
+
+  get 'users/edit'
+  get 'users/:id' => 'users#edit', as: 'user_edit'
+  
+
   root "pages#home"
 
 
