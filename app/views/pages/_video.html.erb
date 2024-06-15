@@ -9,8 +9,19 @@
     <div class="position-absolute bottom-0 w-100 d-flex justify-content-center">
         <h3 class="container rounded bg-transparency fs-4 text-light text-center p-3 m-4 scroll-appear">
             Envoyez votre message aujourd'hui <hr>
-            Décidez de la date à laquelle il pourra être lu <hr>
-            <%= link_to "Envoyer un message", new_message_path, class: "btn btn-light w-100 fw-bold my-2 px-5" %>
+            Décidez de la date à laquelle il pourra être lu <hr>            
+            
+            <%= link_to new_message_path, class: "btn btn-light d-flex justify-content-center align-items-center mb-2" do %>
+                <i class="fa-regular fa-pen-to-square me-1"></i>
+                <div> Envyer un message </div>
+            <% end %>
+
+            <%= link_to messages_path, class: "btn btn-outline-light d-flex justify-content-center align-items-center mb-2" do %>
+                <i class="fa-regular fa-envelope me-1"></i>
+                <div> Voir mes messages </div> 
+            <% end %>
+
         </h3>
     </div>
 </div>
+

@@ -3,16 +3,13 @@
   <%= link_to message_path(message), class: "text-decoration-none text-dark" do %>
     <div class="<%= 'exclusive-post' if message.upcoming? %>"> 
     
+
       <p>
         Message de 
         <strong><%= message.sender.name %> </strong>
         pour 
       <strong><%= message.receiver.name %> </strong>
-
-      </p>
-      <p>  
-        Lisible depuis le <strong> <%= l(message.sent_at) %>   </strong>
-      </p>
+      lisible depuis le <strong> <%= l(message.sent_at) %>   </strong>
 
       <% if controller_name == "messages" && action_name == "show" %>
         
@@ -28,24 +25,24 @@
           <%= message.content %>
         </p>
 
+        <% if message.document.attached? %>
+          <% if message.document.content_type.start_with?('image/') %>
+            <p>
+              <strong>Document:</strong>
+              <%= image_tag url_for(message.document) %>
+            </p>
+          <% else %>
+            <p>
+              <strong>Document:</strong>
+              <%= link_to message.document.filename, url_for(message.document) %>
+            </p>
+          <% end %>
+        <% end %>
       <% end %>
     
     <% end %>
     
 
-    <% if message.document.attached? %>
-      <% if message.document.content_type.start_with?('image/') %>
-        <p>
-          <strong>Document:</strong>
-          <%= image_tag url_for(message.document) %>
-        </p>
-      <% else %>
-        <p>
-          <strong>Document:</strong>
-          <%= link_to message.document.filename, url_for(message.document) %>
-        </p>
-      <% end %>
-    <% end %>
 
   </div>
   
@@ -61,11 +58,11 @@
       </p>
   <% end %>
 
-  <% if controller_name == "messages" && action_name == "index" %>
+  <% unless controller_name == "messages" && action_name == "show" %>
     <div class="text-end">
       <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
         <i class="fa fa-envelope-open"></i>
-        <span class="fw-bold">Open</span>
+        <span class="fw-bold">Ouvrir</span>
       <% end %>
     </div>
   <% end %>
