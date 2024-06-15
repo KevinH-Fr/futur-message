@@ -10,42 +10,56 @@
   </h1>
 
 
-  <div class="d-flex container g-2 mb-3">
-  
-    <%= button_to display_envoyes_messages_path, class: "btn " do %>
-      <div class="p-1 border bg-light">
+
+
+<div class="accordion border accordion-flush mb-2" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         Envoyés
         <span class="ms-1 badge bg-secondary"> 
           <%= @send_messages.count %>
         </span> 
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <%= render 'envoyes' %>      
       </div>
-    <% end %>
-
-
-    <%= button_to display_passes_messages_path, class: "btn" do %>
-      <div class="p-1 border bg-light">
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
         Recus
         <span class="ms-1 badge bg-secondary"> 
           <%= @past_messages.count %>
-        </span> 
+        </span>
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <%= render 'passes' %>      
       </div>
-    <% end %>
-
-
-    <%= button_to display_avenir_messages_path, class: "btn" do %>
-      <div class="p-1 border bg-light">
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
         A venir
         <span class="ms-1 badge bg-secondary"> 
           <%= @upcoming_messages.count %>
         </span> 
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <%= render 'avenir' %>      
       </div>
-    <% end %>
-
+    </div>
   </div>
+</div>
 
-  <div id="partial-container" class="partial-topic mb-3">
-    <%# recoit le turbo stream avec elements cliqués %>
-  </div>
 
 
   <%= link_to new_message_path, 
