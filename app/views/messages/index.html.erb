@@ -7,13 +7,6 @@
     Messages
   </h1>
 
-  <%= link_to new_message_path, 
-        class: "btn btn-primary fw-bold w-100 my-2" do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-    <span> Envoyer un message </span> 
-  <% end %>
-
-  <br><br>
 
 
   <div class="container-fluid p-0 text-center">
@@ -85,6 +78,14 @@
       <%= render message %>
     <% end %>
   </div>
+
+
+
+  <%= link_to new_message_path, 
+        class: "btn btn-primary fw-bold w-100 my-2" do %>
+    <i class="fa-regular fa-pen-to-square"></i>
+    <span> Envoyer un message </span> 
+  <% end %>
 
   <hr>
 

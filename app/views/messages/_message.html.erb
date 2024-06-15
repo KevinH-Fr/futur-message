@@ -61,13 +61,15 @@
       </p>
   <% end %>
 
-        <div class="text-end">
-        <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
-          <i class="fa fa-envelope-open"></i>
-          <span class="fw-bold">Open</span>
-        <% end %>
-        
-      </div>
+  <% if controller_name == "messages" && action_name == "index" %>
+    <div class="text-end">
+      <%= link_to message, class: "btn btn-sm btn-outline-primary" do %>
+        <i class="fa fa-envelope-open"></i>
+        <span class="fw-bold">Open</span>
+      <% end %>
+    </div>
+  <% end %>
+
 
 
 
