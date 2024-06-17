@@ -1,36 +1,53 @@
-<h1 class="m-4 text-center"> à propos </h1>
+<h1 class="m-4 text-center">à propos</h1>
+<div class="container-fluid">
+  <div class="row justify-content-center">
 
-<%= image_tag('/images/logo_courant.png', class: "img-fluid scroll-appear") %>
+    <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-4">
+      <div class="card scroll-appear" style="width: 36rem;">
+        <%= image_tag("/images/logo_courant.png", class:"card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
 
-<div class="card m-2 p-2 scroll-appear">
-    Sunt laboris laboris aliquip adipisicing aute ex veniam enim culpa nostrud reprehenderit. Esse in elit nisi aliquip non id consequat proident. Aliqua et minim laboris aliquip nostrud exercitation id ullamco. Et qui qui elit officia fugiat irure ullamco deserunt qui cillum proident duis officia. Aute deserunt ad aute ullamco. Labore do voluptate sunt labore duis.
-    Mollit eiusmod exercitation aliquip ad esse consequat et adipisicing. Enim dolor eu enim incididunt velit irure est. Minim laborum id mollit dolore consectetur irure aliquip fugiat nulla laboris.
+    <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-4">
+      <div class="card scroll-appear" style="width: 36rem;">
+        <%= image_tag("/images/logo_courant.png", class:"card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-4">
+      <div class="card scroll-appear" style="width: 36rem;">
+        <%= image_tag("/images/logo_courant.png", class:"card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-4">
+      <div class="card scroll-appear" style="width: 36rem;">
+        <%= image_tag("/images/logo_courant.png", class:"card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="scroll-appear">
-    test div scroll animate
-</div>
 
-
-<%= image_tag('/images/logo_courant.png', class: "img-fluid scroll-animate") %>
-
-<div class="card m-2 p-2 scroll-appear">
-    Sunt laboris laboris aliquip adipisicing aute ex veniam enim culpa nostrud reprehenderit. Esse in elit nisi aliquip non id consequat proident. Aliqua et minim laboris aliquip nostrud exercitation id ullamco. Et qui qui elit officia fugiat irure ullamco deserunt qui cillum proident duis officia. Aute deserunt ad aute ullamco. Labore do voluptate sunt labore duis.
-    Mollit eiusmod exercitation aliquip ad esse consequat et adipisicing. Enim dolor eu enim incididunt velit irure est. Minim laborum id mollit dolore consectetur irure aliquip fugiat nulla laboris.
-</div>
-
-<div class="card m-2 p-2 scroll-appear">
-    Sunt laboris laboris aliquip adipisicing aute ex veniam enim culpa nostrud reprehenderit. Esse in elit nisi aliquip non id consequat proident. Aliqua et minim laboris aliquip nostrud exercitation id ullamco. Et qui qui elit officia fugiat irure ullamco deserunt qui cillum proident duis officia. Aute deserunt ad aute ullamco. Labore do voluptate sunt labore duis.
-    Mollit eiusmod exercitation aliquip ad esse consequat et adipisicing. Enim dolor eu enim incididunt velit irure est. Minim laborum id mollit dolore consectetur irure aliquip fugiat nulla laboris.
-</div>
-
-<div class="card m-2 p-2 scroll-appear">
-    Sunt laboris laboris aliquip adipisicing aute ex veniam enim culpa nostrud reprehenderit. Esse in elit nisi aliquip non id consequat proident. Aliqua et minim laboris aliquip nostrud exercitation id ullamco. Et qui qui elit officia fugiat irure ullamco deserunt qui cillum proident duis officia. Aute deserunt ad aute ullamco. Labore do voluptate sunt labore duis.
-    Mollit eiusmod exercitation aliquip ad esse consequat et adipisicing. Enim dolor eu enim incididunt velit irure est. Minim laborum id mollit dolore consectetur irure aliquip fugiat nulla laboris.
-</div>
-
-
-<div class="scroll-appear">
-    test div scroll animate going to left
-</div>
-
+<%= link_to 'Send SMS', send_sms_path %>

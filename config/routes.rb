@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/:id' => 'users#edit', as: 'user_edit'
   
+  get 'send_sms', to: 'messages#send_sms'
 
   root "pages#home"
 

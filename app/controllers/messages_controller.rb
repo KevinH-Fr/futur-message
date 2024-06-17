@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+
   include MessagesHelper
   
   before_action :authenticate_user!
@@ -98,35 +99,31 @@ class MessagesController < ApplicationController
     redirect_to message_path(@message.id), notice: 'Email sent successfully!'
   end
 
-  # def update_content
-  #   respond_to do |format|
-  #     format.turbo_stream do
-  #       render turbo_stream: 
-  #         turbo_stream.update(
-  #           'partial-container', 
-  #           partial: 'shared/content_to_load'
-  #         )
-  #     end
-  #     format.html { render partial: 'shared/content_to_load' } # Ensure compatibility with non-Turbo requests
-  #   end
-  # end
+  def send_sms
 
-  # def reload_content
+    require 'twilio-ruby'  # Ensure this line is present
 
-  #   @message = Message.find(1)
+    to = "+33671793932"
+    body = "test contenu message"
 
-  #   respond_to do |format|
-  #     format.turbo_stream do
-  #       render turbo_stream: 
-  #         turbo_stream.update(
-  #           'partial-container', 
-  #           partial: 'messages/message',
-  #           locals: { message: @message }
-  #         )
-  #     end
-  #     format.html { render partial: 'messages/message' } # Ensure compatibility with non-Turbo requests
-  #   end
-  # end
+    account_sid = Rails.application.credentials.twilio_account
+    auth_token = Rails.application.credentials.twilio_auth_token
+    from = Rails.application.credentials.twilio_phone_number
+
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    message = client.messages.create(
+      from: from,
+      to: to,
+      body: body
+    )
+
+    if message.sid
+      render json: { status: 'Message sent', sid: message.sid }
+    else
+      render json: { status: 'Failed to send message' }, status: :unprocessable_entity
+    end
+  end
 
 
   private

@@ -1,14 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
  *
  *= require_tree .
  *= require_self
@@ -19,12 +9,10 @@
  }
 
 
- .exclusive-post {
-    filter: blur(10px); /* Adjust the blur intensity as needed */
-  }
+.exclusive-post {
+  filter: blur(10px); /* Adjust the blur intensity as needed */
+}
 
-
-  
 .video-container {
   position: relative;
   width: 100%;
@@ -67,7 +55,6 @@
 .bg-white-transparency {
   background-color: rgba(0, 0, 0, 0);
 }
-
 
 body {
   background-image: url('svgs/bg-landing.svg');
@@ -113,28 +100,13 @@ h3{
   max-width: 500px;
 }
 
-/* ANIMATIONS */
 
-.scroll-animate {
-  will-change: transform, opacity;
-  opacity: 0; /* Initial state before animation */
-}
 
-.scroll-appear {
-  will-change: opacity;
-  opacity: 0; /* Initial state before animation */
-}
 
-.scroll-slide-right {
-  will-change: transform;
-  transform: translateX(-100%); /* Initial state before animation */
-}
 
 .bg-paper{
   background-color: rgb(236, 234, 211);
 }
-
-
 
 
 .background-image {
@@ -182,6 +154,8 @@ h3{
 }
 
 
+/* ANIMATIONS */
+
 /* Define the keyframes for the fade-in and fade-out animations */
 @keyframes fadeIn {
   from {
@@ -216,6 +190,23 @@ h3{
 .scroll-appear.out-of-view {
   animation: fadeOut 2s forwards;
 }
+
+.scroll-animate {
+  will-change: transform, opacity;
+  opacity: 0; /* Initial state before animation */
+}
+
+.scroll-appear {
+  will-change: opacity;
+  opacity: 0; /* Initial state before animation */
+}
+
+.scroll-slide-right {
+  will-change: transform;
+  transform: translateX(-100%); /* Initial state before animation */
+}
+
+
 
 
 .card-shadowed{
