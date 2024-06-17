@@ -15,6 +15,8 @@ class Message < ApplicationRecord
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
   
   after_save :schedule_email, if: :saved_change_to_sent_at?
+  after_save :schedule_sms
+
   after_save :deliver_email
 
   def past?
@@ -34,7 +36,18 @@ class Message < ApplicationRecord
   end
 
   def schedule_email
-    EmailJob.set(wait_until: self.sent_at).perform_later(self.id)
+    if mail?
+      EmailJob.set(wait_until: self.sent_at).perform_later(self.id)
+    end
   end
-  
+
+  def schedule_sms
+    if sms?
+      to = "+33671793932"  # Replace with actual recipient number
+      body = "test contenu message"  # Replace with actual message content
+      sms_sender = SmsService.new(to, body)
+      result = sms_sender.send_sms
+    end
+  end
+
 end

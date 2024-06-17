@@ -93,7 +93,15 @@
             <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
             <%= form.datetime_field :sent_at, class: "form-control date" %>
           </div>
-         
+
+          <!-- Checkbox for SMS -->
+          <%= form.check_box :sms %>
+          <%= form.label :sms, 'Send SMS' %>
+
+          <!-- Checkbox for Mail -->
+          <%= form.check_box :mail %>
+          <%= form.label :mail, 'Send Mail' %>
+                
         </div>
 
           <%= custom_submit_button(form, "Envoyer") %>

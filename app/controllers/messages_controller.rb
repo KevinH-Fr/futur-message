@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
 
-
   include MessagesHelper
   
   before_action :authenticate_user!
@@ -99,32 +98,6 @@ class MessagesController < ApplicationController
     redirect_to message_path(@message.id), notice: 'Email sent successfully!'
   end
 
-  def send_sms
-
-    require 'twilio-ruby'  # Ensure this line is present
-
-    to = "+33671793932"
-    body = "test contenu message"
-
-    account_sid = Rails.application.credentials.twilio_account
-    auth_token = Rails.application.credentials.twilio_auth_token
-    from = Rails.application.credentials.twilio_phone_number
-
-    client = Twilio::REST::Client.new(account_sid, auth_token)
-
-    message = client.messages.create(
-      from: from,
-      to: to,
-      body: body
-    )
-
-    if message.sid
-      render json: { status: 'Message sent', sid: message.sid }
-    else
-      render json: { status: 'Failed to send message' }, status: :unprocessable_entity
-    end
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -134,7 +107,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:title, :content, :sender_id, :receiver_id, :sent_at, :document)
+      params.require(:message).permit(:title, :content, :sender_id, :receiver_id, :sent_at, :document, :mail, :sms)
     end
 
     def authorize_sender

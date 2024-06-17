@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   end
 
     post 'messages/send_email', to: 'messages#send_email', as: 'send_email'
-
+    post '/send_sms', to: 'messages#send_sms', as: 'send_sms'
+  
   devise_for :users
   resources :users, only: [:index]
 
@@ -38,7 +39,6 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/:id' => 'users#edit', as: 'user_edit'
   
-  get 'send_sms', to: 'messages#send_sms'
 
   root "pages#home"
 
