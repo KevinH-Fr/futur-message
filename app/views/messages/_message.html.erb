@@ -8,7 +8,7 @@
         Message de 
         <strong><%= message.sender.name %> </strong>
         pour 
-      <strong><%= message.receiver.name %> </strong>
+      <strong><%= message.receiver_label %> </strong>
       lisible depuis le <strong> <%= l(message.sent_at) %>   </strong>
 
       <% if controller_name == "messages" && action_name == "show" %>

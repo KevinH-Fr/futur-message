@@ -32,8 +32,8 @@
             <%= form.text_area :content, class: "form-control bg-transparent text-dark", 
                   placeholder: "Ecrivez votre message..." %>
           </div>
-          <div>
-            <%= link_to 'Suivant', '#', class: "btn btn-outline-success" ,
+          <div class="text-end">
+            <%= link_to 'Suivant', '#', class: "btn btn-success" ,
                 data: { bs_toggle: 'collapse', bs_target: '#flush-collapseTwo', aria_expanded: 'false', aria_controls: 'flush-collapseTwo'} %>
           </div>
         </div>
@@ -59,8 +59,8 @@
             <%= form.file_field :document, class: "form-control file" %>
           </div>  
 
-          <div>
-            <%= link_to 'Suivant', '#', class: "btn btn-outline-success" ,
+          <div class="text-end">
+            <%= link_to 'Suivant', '#', class: "btn btn-success" ,
                 data: { bs_toggle: 'collapse', bs_target: '#flush-collapseThree', aria_expanded: 'false', aria_controls: 'flush-collapseThree'} %>
           </div>
         </div>
@@ -83,11 +83,20 @@
             <%= form.hidden_field :sender_id, value: current_user.id %>
 
           <div class="input-group input-group mb-2">
-            <%= form.label :receiver_id, class: "input-group-text" %>
-            <%= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
+            <%#= form.label :receiver_id, class: "input-group-text" %>
+            <%#= form.collection_select :receiver_id, @users.all.order(:name), :id, :name, 
             { include_blank: 'Sélectionner', selected: message.receiver_id },  class: "form-select" %>
           </div>
 
+          <div class="input-group input-group mb-2">
+            <%= form.label :receiver_phone_number, "Téléphone", class: "input-group-text" %>
+            <%= form.text_field :receiver_phone_number, class: "form-control text" %>
+          </div>
+
+          <div class="input-group input-group mb-2">
+            <%= form.label :receiver_mail, "Email", class: "input-group-text" %>
+            <%= form.text_field :receiver_mail, class: "form-control text" %>
+          </div>
 
           <div class="input-group input-group mb-2">
             <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>

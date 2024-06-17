@@ -14,12 +14,12 @@ class MessageMailer < ApplicationMailer
 
   def receiver_scheduled_email(message_id)
     setup_message_and_url(message_id)
-    mail(to: @message.receiver.email, subject: "Votre message pour le futur")
+    mail(to: @message.receiver_mail, subject: "Votre message pour le futur")
   end
 
   def receiver_delivered_email(message_id)
     setup_message_and_url(message_id)
-    mail(to: @message.receiver.email, subject: 'Votre nouveau message est lisible')
+    mail(to: @message.receiver_mail, subject: 'Votre nouveau message est lisible')
   end
 
   private
