@@ -6,9 +6,9 @@ class SmsService
       @to = to
       @body = body
       @sender_name = sender_name
-      @account_sid = Rails.application.credentials.twilio_account
-      @auth_token = Rails.application.credentials.twilio_auth_token
-      @from = Rails.application.credentials.twilio_phone_number
+      @account_sid = ENV['TWILIO_ACCOUNT']
+      @auth_token = ENV['TWILIO_AUTH_TOKEN']
+      @from = ENV['TWILIO_PHONE_NUMBER']
     end
   
     def send_sms

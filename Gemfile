@@ -79,3 +79,5 @@ gem 'requestjs-rails'
 gem 'jquery-rails'
 
 gem 'twilio-ruby'
+
+gem 'dotenv'

@@ -94,7 +94,7 @@ class MessagesController < ApplicationController
   def send_email
     @message = Message.find(params[:message])
     #@user = User.find(params[:receiver_id]) # Or however you get the @user object
-    MessageMailer.welcome_email(@message.receiver_id).deliver_now
+    MessageMailer.welcome_email(@message.receiver_id).deliver_later
     redirect_to message_path(@message.id), notice: 'Email sent successfully!'
   end
 
