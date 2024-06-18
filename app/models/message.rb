@@ -8,17 +8,15 @@ class Message < ApplicationRecord
   # Validations (optional)
   validates :content, presence: true
   validates :sender_id, presence: true
-  #validates :receiver_id, presence: true
   validates :sent_at, presence: true
 
   validate :validate_receiver_mail_if_message_mail
-
   validate :validate_receiver_phone_if_message_sms
 
-  
+
   scope :past, -> { where('sent_at <= ?', Time.current) }
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
-  
+
   after_save :schedule_email, if: :saved_change_to_sent_at?
   after_save :schedule_sms, if: :saved_change_to_sent_at?
 
@@ -31,7 +29,7 @@ class Message < ApplicationRecord
   def upcoming?
     sent_at > Time.current
   end
-  
+
   def receiver_label
     if receiver
       receiver.name
@@ -41,7 +39,7 @@ class Message < ApplicationRecord
       receiver_phone_number
     end
   end
-  
+
   private
 
   def deliver_email
@@ -74,6 +72,6 @@ class Message < ApplicationRecord
     end
   end
 
-  
+
 
 end

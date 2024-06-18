@@ -103,14 +103,16 @@
             <%= form.datetime_field :sent_at, class: "form-control date" %>
           </div>
 
-          <!-- Checkbox for SMS -->
-          <%= form.check_box :sms %>
-          <%= form.label :sms, 'Send SMS' %>
+          <div class="form-check form-switch h6 text-start mb-2">
+            <%= form.label :sms, class: "form-check-label" %>
+            <%= form.check_box :sms, class: "form-check-input" %>
+          </div>
 
-          <!-- Checkbox for Mail -->
-          <%= form.check_box :mail %>
-          <%= form.label :mail, 'Send Mail' %>
-                
+          <div class="form-check form-switch h6 text-start mb-2">
+            <%= form.label :mail, class: "form-check-label" %>
+            <%= form.check_box :mail, class: "form-check-input" %>
+          </div>
+
         </div>
 
           <%= custom_submit_button(form, "Envoyer") %>
