@@ -4,6 +4,7 @@ class Message < ApplicationRecord
   belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id', optional: true
 
   has_one_attached :document
+  validate :document_format_and_size
 
   # Validations (optional)
   validates :content, presence: true
@@ -37,6 +38,17 @@ class Message < ApplicationRecord
       receiver_mail
     elsif receiver_phone_number
       receiver_phone_number
+    end
+  end
+
+  def document_format_and_size
+    if document.attached?
+      unless document.blob.content_type.in?(%w(image/jpeg image/png image/gif))
+        errors.add(:document, 'must be a JPEG, PNG, or GIF image')
+      end
+      unless document.blob.byte_size <= 2.megabyte
+        errors.add(:document, 'size should be less than 2MB')
+      end
     end
   end
 

@@ -30,7 +30,7 @@
           <div class="input-group input-group mb-2">
             <%#= form.label :content, class: "input-group-text" %>
             <%= form.text_area :content, class: "form-control bg-transparent text-dark", 
-                  placeholder: "Ecrivez votre message...", required: true %>
+                  placeholder: "Ecrivez votre message..." %>
           </div>
           <div class="text-end">
             <%= link_to 'Suivant', '#', class: "btn btn-success" ,
@@ -56,7 +56,7 @@
 
           <div class="input-group input-group mb-2">
             <%= form.label :document, class: "input-group-text" %>
-            <%= form.file_field :document, class: "form-control file" %>
+            <%= form.file_field :document, accept: "image/jpeg, image/png", class: "form-control file" %>
           </div>  
 
           <div class="text-end">
