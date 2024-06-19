@@ -30,7 +30,7 @@
           <div class="input-group input-group mb-2">
             <%#= form.label :content, class: "input-group-text" %>
             <%= form.text_area :content, class: "form-control bg-transparent text-dark", 
-                  placeholder: "Ecrivez votre message..." %>
+                  placeholder: "Ecrivez votre message...", required: true %>
           </div>
           <div class="text-end">
             <%= link_to 'Suivant', '#', class: "btn btn-success" ,
@@ -88,35 +88,59 @@
             { include_blank: 'Sélectionner', selected: message.receiver_id },  class: "form-select" %>
           </div>
 
-          <div class="input-group input-group mb-2">
-            <%= form.label :receiver_phone_number, "Téléphone", class: "input-group-text" %>
-            <%= form.text_field :receiver_phone_number, class: "form-control text" %>
+          <div data-controller="showhide" data-showhide-show-if-value="true">
+
+            <div class="row">
+              <div class="col-4">
+                <div class="form-check form-switch h6 text-start mb-2">
+                  <%= form.label :sms, class: "form-check-label" %>
+                  <%= form.check_box :sms, class: "form-check-input", id: "sms_checkbox", data: { showhide_target: "input", action: "change->showhide#toggle" } %>
+                </div>            
+              </div>
+              <div class="col">
+                <div data-showhide-target="output">
+                  <div class="input-group input-group mb-2">
+                    <%= form.label :receiver_phone_number, "Tél", class: "input-group-text" %>
+                    <%= form.text_field :receiver_phone_number, class: "form-control text" %>
+                  </div>
+                </div>          
+              </div>
+            </div>
+
           </div>
 
-          <div class="input-group input-group mb-2">
-            <%= form.label :receiver_mail, "Email", class: "input-group-text" %>
-            <%= form.text_field :receiver_mail, class: "form-control text" %>
+          <div data-controller="showhide" data-showhide-show-if-value="true">
+            <div class="row">
+              <div class="col-4">
+
+                <div class="form-check form-switch h6 text-start mb-2">
+                  <%= form.label :mail, class: "form-check-label" %>
+                  <%= form.check_box :mail, class: "form-check-input", id: "mail_checkbox", data: { showhide_target: "input", action: "change->showhide#toggle" } %>
+                </div>
+              </div>
+              <div class="col">
+
+                <div data-showhide-target="output">
+                  <div class="input-group input-group mb-2">
+                    <%= form.label :receiver_mail, "Email", class: "input-group-text" %>
+                    <%= form.text_field :receiver_mail, class: "form-control text" %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
 
           <div class="input-group input-group mb-2">
             <%= form.label :sent_at, "Heure d'envoi", class: "input-group-text" %>
-            <%= form.datetime_field :sent_at, class: "form-control date" %>
-          </div>
-
-          <div class="form-check form-switch h6 text-start mb-2">
-            <%= form.label :sms, class: "form-check-label" %>
-            <%= form.check_box :sms, class: "form-check-input" %>
-          </div>
-
-          <div class="form-check form-switch h6 text-start mb-2">
-            <%= form.label :mail, class: "form-check-label" %>
-            <%= form.check_box :mail, class: "form-check-input" %>
+            <%= form.datetime_field :sent_at, class: "form-control date", required: true %>
           </div>
 
         </div>
 
+        <div class="p-2">
           <%= custom_submit_button(form, "Envoyer") %>
-
+        </div>
 
       </div>
     </div>
