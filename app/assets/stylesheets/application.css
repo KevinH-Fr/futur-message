@@ -175,36 +175,46 @@ h3{
   }
 }
 
-/* Initially, elements are hidden */
 .scroll-appear {
+  opacity: 1;
+  animation: fadeIn 1s forwards;
+}
+
+.scroll-disappear {
+  opacity: 0;
+  animation: fadeOut 1s forwards;
+}
+
+/* Initially, elements are hidden */
+/*.scroll-appear {
   opacity: 0;
   transition: opacity 2s ease-in-out;
 }
 
 /* Add this class when the element is in view */
-.scroll-appear.in-view {
+/*.scroll-appear.in-view {
   animation: fadeIn 2s forwards;
 }
 
 /* Add this class when the element is out of view */
-.scroll-appear.out-of-view {
+/*.scroll-appear.out-of-view {
   animation: fadeOut 2s forwards;
-}
+}*/
 
-.scroll-animate {
+/*.scroll-animate {
   will-change: transform, opacity;
   opacity: 0; /* Initial state before animation */
-}
+/*}*/
 
-.scroll-appear {
+/* .scroll-appear {
   will-change: opacity;
   opacity: 0; /* Initial state before animation */
-}
+/*} */
 
-.scroll-slide-right {
+/*.scroll-slide-right {
   will-change: transform;
   transform: translateX(-100%); /* Initial state before animation */
-}
+/*}*/
 
 
 
