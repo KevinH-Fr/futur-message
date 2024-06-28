@@ -4,6 +4,7 @@ class Message < ApplicationRecord
   belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id', optional: true
 
   has_one_attached :document
+
   validate :document_format_and_size
 
   # Validations (optional)

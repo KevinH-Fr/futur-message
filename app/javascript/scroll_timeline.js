@@ -21,5 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var elements = document.querySelectorAll('.scroll-appear-element');
   elements.forEach(element => {
     observer.observe(element);
+    // Trigger a check for elements already in view
+    if (element.getBoundingClientRect().top < window.innerHeight) {
+      element.classList.remove("scroll-disappear");
+      element.classList.add("scroll-appear");
+    }
   });
 });

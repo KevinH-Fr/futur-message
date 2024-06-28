@@ -13,3 +13,8 @@ LocalTime.start()
 
 // Import Scroll Timeline functionality
 import "scroll_timeline";
+
+console.log("scroll timeline loaded");
+
+import "trix"
+import "@rails/actiontext"
