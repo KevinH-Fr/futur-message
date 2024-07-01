@@ -82,3 +82,5 @@ gem 'twilio-ruby'
 
 gem 'dotenv'
 gem 'meta-tags'
+
+gem 'sitemap_generator'
