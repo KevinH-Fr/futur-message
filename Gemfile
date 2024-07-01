@@ -81,3 +81,4 @@ gem 'jquery-rails'
 gem 'twilio-ruby'
 
 gem 'dotenv'
+gem 'meta-tags'
