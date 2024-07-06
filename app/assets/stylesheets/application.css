@@ -100,10 +100,6 @@ h3{
   max-width: 500px;
 }
 
-
-
-
-
 .bg-paper{
   background-color: rgb(236, 234, 211);
 }
@@ -154,74 +150,23 @@ h3{
 }
 
 
-/* ANIMATIONS */
-
-/* Define the keyframes for the fade-in and fade-out animations */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 0;
-  }
-}
-
-.scroll-appear {
-  opacity: 1;
-  animation: fadeIn 1s forwards;
-}
-
-.scroll-disappear {
-  opacity: 0;
-  animation: fadeOut 1s forwards;
-}
-
-/* Initially, elements are hidden */
-/*.scroll-appear {
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-
-/* Add this class when the element is in view */
-/*.scroll-appear.in-view {
-  animation: fadeIn 2s forwards;
-}
-
-/* Add this class when the element is out of view */
-/*.scroll-appear.out-of-view {
-  animation: fadeOut 2s forwards;
-}*/
-
-/*.scroll-animate {
-  will-change: transform, opacity;
-  opacity: 0; /* Initial state before animation */
-/*}*/
-
-/* .scroll-appear {
-  will-change: opacity;
-  opacity: 0; /* Initial state before animation */
-/*} */
-
-/*.scroll-slide-right {
-  will-change: transform;
-  transform: translateX(-100%); /* Initial state before animation */
-/*}*/
-
-
-
 
 .card-shadowed{
   border-radius: 10px;
   background: #ffffff;
   box-shadow:  16px 16px 32px #bebebe,
              -16px -16px 32px #ffffff;
+}
+
+
+
+/* ANIMATIONS */
+
+.appear {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.appear.visible {
+  opacity: 1;
 }

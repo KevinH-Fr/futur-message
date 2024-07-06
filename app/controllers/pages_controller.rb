@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     def about
     end
 
+    def testscroll
+    end
+
 end
