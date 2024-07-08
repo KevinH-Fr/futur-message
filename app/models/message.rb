@@ -15,6 +15,7 @@ class Message < ApplicationRecord
   validate :validate_receiver_mail_if_message_mail
   validate :validate_receiver_phone_if_message_sms
 
+  validate :sent_at_must_be_in_the_future
 
   scope :past, -> { where('sent_at <= ?', Time.current) }
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
@@ -85,6 +86,12 @@ class Message < ApplicationRecord
     end
   end
 
+  # Méthode de validation pour vérifier que sent_at est dans le futur
+  def sent_at_must_be_in_the_future
+    if sent_at.present? && sent_at <= Time.current
+      errors.add(:sent_at, "must be in the future")
+    end
+  end
 
 
 end
