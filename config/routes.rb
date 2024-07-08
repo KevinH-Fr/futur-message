@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   resources :posts
   get 'steps_message/content'
   get 'steps_message/media'

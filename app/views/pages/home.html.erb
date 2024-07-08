@@ -1,7 +1,7 @@
 <%#= render 'pages/introduction' %>
 
 <% title "Landing Page" %>
-<% description "Landing Page with features and tools to send a message in the futur" %>
+<% description "Landing Page avec les explications et outils pour envoyer des messages dans le futur" %>
 
 <%= render 'pages/video' %>
 
@@ -9,9 +9,9 @@
 
 <%= render 'pages/explications' %>
 
-<div class="p-2 m-2 appear">
+<div class="p-2 my-3 appear">
   <%= link_to new_message_path, 
-        class: "btn btn-outline-primary fw-bold w-100 my-2" do %>
+        class: "btn btn-primary fw-bold w-100 my-2" do %>
 
     <i class="fa-regular fa-pen-to-square ms-1"></i>
     <span> Envoyer un message </span> 
@@ -20,13 +20,15 @@
 
 
   <%= link_to messages_path, 
-        class: "btn btn-outline-dark fw-bold w-100 my-2" do %>
+        class: "btn btn-dark fw-bold w-100 my-2" do %>
     <i class="fa-regular fa-envelope ms-1"></i>
     <span> Voir mes messages </span> 
 
   <% end %>
 </div>
 
+
+  <%= link_to "faire un paiment", new_payment_path, class: "btn btn-sm w-100 btn-warning" %>
 
 <hr>
 

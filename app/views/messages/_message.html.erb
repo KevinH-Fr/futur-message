@@ -20,10 +20,13 @@
           </p>      
         <% end %>
 
-        <p>
-          <strong>Message:</strong>
-          <%= message.content %>
-        </p>
+        <% if message.past? %>
+          <p>
+            <strong>Message:</strong>
+            <%= message.content %>
+          </p>
+        <% end %>
+        
 
         <% if message.document.attached? %>
           <% if message.document.content_type.start_with?('image/') %>
