@@ -28,7 +28,12 @@
 </div>
 
 
-  <%= link_to "faire un paiment", new_payment_path, class: "btn btn-sm w-100 btn-warning" %>
+
+  <%= link_to "produit 1", create_checkout_session_path(id: Produit.first), 
+      method: :post, class: "btn btn-warning w-100 text-light fw-bold", "data-turbo" => "false" %>
+
+  <%= link_to "produit 2", create_checkout_session_path(id: Produit.last), 
+      method: :post, class: "btn btn-warning w-100 text-light fw-bold", "data-turbo" => "false" %>
 
 <hr>
 

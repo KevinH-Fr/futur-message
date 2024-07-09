@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :produits
   resources :payments
   resources :posts
   get 'steps_message/content'
@@ -41,6 +42,10 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/:id' => 'users#edit', as: 'user_edit'
   
+  #stripe
+  get 'purchase_success', to: 'stripe#purchase_success'
+  post 'create-checkout-session', to: 'payments#create_checkout_session'
+
 
   root "pages#home"
 

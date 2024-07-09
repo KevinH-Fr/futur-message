@@ -60,19 +60,21 @@ class PaymentsController < ApplicationController
 
   def create_checkout_session
 
-    price = 100 #Stripe::Price.retrieve(@campaign.stripe_price_id)
+    produit = Produit.find(params[:id])
+    price = Stripe::Price.retrieve(produit.stripe_price_id)
+    price_value = produit.amount
       
       line_items = [
         {
           price_data: {
             currency: 'eur',
             product_data: {
-              name: #@campaign.title,
-              metadata: {
-                product_id: #@campaign.id # Add product identifier as metadata
-              }
+              name: produit.name,
+              #metadata: {
+              #  product_id: #@campaign.id # Add product identifier as metadata
+              #}
             },
-            unit_amount: price,
+            unit_amount: price_value,
           },
           quantity: 1
         }
@@ -82,13 +84,13 @@ class PaymentsController < ApplicationController
     session = Stripe::Checkout::Session.create(
       {
         metadata: {
-          campaign_id: # @campaign.id
+          product_id: produit.id
         },
         customer_email: current_user.email,
         line_items: line_items,
         mode: 'payment',
         success_url: root_url + "purchase_success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: #campaign_url(@campaign),
+        #cancel_url: #campaign_url(@campaign),
       }
     )
   
@@ -104,7 +106,7 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:amount, :stripe_payment_id, :status)
+      params.require(:payment).permit(:amount, :stripe_product_id, :status)
     end
       
 end
