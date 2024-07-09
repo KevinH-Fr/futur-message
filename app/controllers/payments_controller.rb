@@ -57,28 +57,44 @@ class PaymentsController < ApplicationController
     end
   end
 
+
   def create_checkout_session
-    #price = Stripe::Price.retrieve(@article.stripe_price_id)
-    #mode = price.recurring ? 'subscription' : 'payment'
-  
-    session = Stripe::Checkout::Session.create({
-      metadata: {
-      #  article_id: @article.id, 
-      },
-      #customer_email: current_user.email,
-      line_items: [
+
+    price = 100 #Stripe::Price.retrieve(@campaign.stripe_price_id)
+      
+      line_items = [
         {
-         # price: @article.stripe_price_id,
-         # quantity: 1,
+          price_data: {
+            currency: 'eur',
+            product_data: {
+              name: #@campaign.title,
+              metadata: {
+                product_id: #@campaign.id # Add product identifier as metadata
+              }
+            },
+            unit_amount: price,
+          },
+          quantity: 1
         }
-      ],
-      #mode: mode,
-      success_url: root_url + "purchase_success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url:  payment_url(@payment),
-    })
+      ]
+    
+  
+    session = Stripe::Checkout::Session.create(
+      {
+        metadata: {
+          campaign_id: # @campaign.id
+        },
+        customer_email: current_user.email,
+        line_items: line_items,
+        mode: 'payment',
+        success_url: root_url + "purchase_success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: #campaign_url(@campaign),
+      }
+    )
   
     redirect_to session.url, allow_other_host: true, status: 303
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
