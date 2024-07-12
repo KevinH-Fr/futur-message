@@ -13,8 +13,7 @@ LocalTime.start()
 
 // Import Scroll Timeline functionality
 import "scroll_timeline";
-
-console.log("scroll timeline loaded");
+import "phone_number_formatter";
 
 import "trix"
 import "@rails/actiontext"
