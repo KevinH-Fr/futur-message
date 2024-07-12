@@ -13,6 +13,7 @@ class StripeController < ApplicationController
         status: 'paid'
       )
 
+
     end
 
   end

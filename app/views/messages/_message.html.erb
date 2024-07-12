@@ -70,10 +70,6 @@
     </div>
   <% end %>
 
-
-  <%#= form_with url: send_sms_path do %>
-    <%#= hidden_field_tag :message, message.id %>
-    <%#= submit_tag 'Send sms Email' %>
-  <%# end %>
+  <%= render partial: 'messages/donate', locals: { message: message } %>
 
 </div>

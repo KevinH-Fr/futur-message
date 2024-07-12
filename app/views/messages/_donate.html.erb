@@ -1,0 +1,8 @@
+<%# faire un collapse donate avec icon et mettre les deux options 1 et 2 € %>
+
+<%= link_to "Donate #1", create_checkout_session_path(id: Produit.first), 
+      method: :post, class: "btn btn-warning w-100 text-light fw-bold", "data-turbo" => "false" %>
+
+<%= link_to "Donate #2", create_checkout_session_path(id: Produit.last), 
+      method: :post, class: "btn btn-warning w-100 text-light fw-bold", "data-turbo" => "false" %>
+

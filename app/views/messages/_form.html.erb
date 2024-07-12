@@ -138,6 +138,21 @@
 
         </div>
 
+
+  <div class="form-check">
+    <%#= form.radio_button :paid_option, false, class: "form-check-input", id: "flexRadioDefault1" %>
+    <%#= form.label :paid_option, "Envoyer le message (gratuit)", class: "form-check-label", for: "flexRadioDefault1" %>
+  </div>
+
+  <div class="form-check">
+    <%#= form.radio_button :paid_option, true, class: "form-check-input", id: "flexRadioDefault2", checked: true %>
+    <%#= form.label :paid_option, "Envoyer le message et aider FuturMessage (1€)", class: "form-check-label", for: "flexRadioDefault2" %>
+  </div>
+
+
+
+
+
         <div class="p-2">
           <%= custom_submit_button(form, "Envoyer") %>
         </div>
@@ -149,6 +164,7 @@
 
 
 <br> <br>
+
 
 
 
