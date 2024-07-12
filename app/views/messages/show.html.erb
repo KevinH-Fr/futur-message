@@ -24,6 +24,8 @@
 
   <% end %>
 
+  <%= render partial: 'messages/donate', locals: { message: @message } %>
+
 
   <%= return_model_index_button("Retour vers messages", messages_path) %>
 
