@@ -1,5 +1,6 @@
 class ProduitsController < ApplicationController
   before_action :set_produit, only: %i[ show edit update destroy ]
+  before_action :authorize_admin, only: %i[ new create show index edit update destroy ]
 
   # GET /produits or /produits.json
   def index
@@ -91,4 +92,12 @@ class ProduitsController < ApplicationController
       produit.update(stripe_product_id: product.id, stripe_price_id: price.id)
       
     end
+
+    
+    def authorize_admin
+      unless current_user && current_user.admin 
+        redirect_to root_path, alert: I18n.t('notices.unauthorized_action') 
+      end
+    end
+
 end
