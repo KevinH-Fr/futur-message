@@ -12,9 +12,9 @@
 
       <div class="container-fluid text-center">
             <%= form_with url: :create_checkout_session do |f| %>
-                        <%= link_to "Soutenir FuturMessage: 1€", create_checkout_session_path(id: Produit.find(1)), 
+                        <%= link_to "Soutenir FuturMessage: 1€", create_checkout_session_path(produit_id: Produit.find(1)), 
                               method: :post, class: "btn btn-outline-warning fw-bold", "data-turbo" => "false" %>
-                        <%= link_to "Soutenir FuturMessage: 3€", create_checkout_session_path(id: Produit.find(2)), 
+                        <%= link_to "Soutenir FuturMessage: 3€", create_checkout_session_path(produit_id: Produit.find(2)), 
                               method: :post, class: "btn btn-outline-warning fw-bold", "data-turbo" => "false" %>
             <% end %>
       </div>

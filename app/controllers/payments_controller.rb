@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: %i[ show edit update destroy create_checkout_session ]
+  before_action :set_payment, only: %i[ show edit update destroy ]
 
   # GET /payments or /payments.json
   def index
@@ -55,46 +55,6 @@ class PaymentsController < ApplicationController
       format.html { redirect_to payments_url, notice: "Payment was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-
-  def create_checkout_session
-
-    produit = Produit.find(params[:id])
-    price = Stripe::Price.retrieve(produit.stripe_price_id)
-    price_value = produit.amount
-      
-      line_items = [
-        {
-          price_data: {
-            currency: 'eur',
-            product_data: {
-              name: produit.name,
-              #metadata: {
-              #  product_id: #@campaign.id # Add product identifier as metadata
-              #}
-            },
-            unit_amount: price_value,
-          },
-          quantity: 1
-        }
-      ]
-    
-  
-    session = Stripe::Checkout::Session.create(
-      {
-        metadata: {
-          product_id: produit.id
-        },
-        customer_email: current_user.email,
-        line_items: line_items,
-        mode: 'payment',
-        success_url: root_url + "purchase_success?session_id={CHECKOUT_SESSION_ID}",
-        #cancel_url: #campaign_url(@campaign),
-      }
-    )
-  
-    redirect_to session.url, allow_other_host: true, status: 303
   end
   
 

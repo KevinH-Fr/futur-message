@@ -93,6 +93,45 @@ class MessagesController < ApplicationController
     redirect_to message_path(@message.id), notice: 'Email sent successfully!'
   end
 
+  def create_checkout_session
+
+    produit = Produit.find(params[:produit_id])
+    price = Stripe::Price.retrieve(produit.stripe_price_id)
+    price_value = produit.amount
+      
+      line_items = [
+        {
+          price_data: {
+            currency: 'eur',
+            product_data: {
+              name: produit.name,
+              #metadata: {
+              #  product_id: #@campaign.id # Add product identifier as metadata
+              #}
+            },
+            unit_amount: price_value,
+          },
+          quantity: 1
+        }
+      ]
+    
+  
+    session = Stripe::Checkout::Session.create(
+      {
+        metadata: {
+          product_id: produit.id
+        },
+        customer_email: current_user.email,
+        line_items: line_items,
+        mode: 'payment',
+        success_url: root_url + "purchase_success?session_id={CHECKOUT_SESSION_ID}",
+        #cancel_url: #campaign_url(@campaign),
+      }
+    )
+  
+    redirect_to session.url, allow_other_host: true, status: 303
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message

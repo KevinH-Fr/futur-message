@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   
   #stripe
   get 'purchase_success', to: 'stripe#purchase_success'
-  post '/create_checkout_session', to: 'payments#create_checkout_session', as: 'create_checkout_session'
+  post '/create_checkout_session', to: 'messages#create_checkout_session', as: 'create_checkout_session'
 
   root "pages#home"
 
