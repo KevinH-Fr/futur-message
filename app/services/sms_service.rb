@@ -18,7 +18,7 @@ class SmsService
       message = client.messages.create(
         from: @from,
         to: @to,
-        body: "message: #{@body} - envoyé par: #{@sender_name}"
+        body: "message: #{@body} - envoyé par: #{@sender_name} - futurmessage.com"
       )
   
       if message.sid
