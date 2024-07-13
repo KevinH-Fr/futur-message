@@ -98,6 +98,7 @@ class Message < ApplicationRecord
   end
 
   def prepend_country_code_to_receiver_phone_number
+    puts "________________called preprend number_______________________"
     if receiver_phone_number.present? 
       normalized_number = receiver_phone_number.gsub(/\s+/, '') # Remove spaces
       self.receiver_phone_number = "+33#{normalized_number}"
