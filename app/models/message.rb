@@ -21,6 +21,8 @@ class Message < ApplicationRecord
   scope :past, -> { where('sent_at <= ?', Time.current) }
   scope :upcoming, -> { where('sent_at > ?', Time.current) }
 
+  before_save :prepend_country_code_to_receiver_phone_number
+
   after_save :schedule_email, if: :saved_change_to_sent_at?
   after_save :schedule_sms, if: :saved_change_to_sent_at?
 
@@ -95,5 +97,11 @@ class Message < ApplicationRecord
     end
   end
 
+  def prepend_country_code_to_receiver_phone_number
+    if receiver_phone_number.present? 
+      normalized_number = receiver_phone_number.gsub(/\s+/, '') # Remove spaces
+      self.receiver_phone_number = "+33#{normalized_number}"
+    end
+  end
 
 end

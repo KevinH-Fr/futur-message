@@ -29,7 +29,8 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
     @users = User.all
-
+    @message.receiver_phone_number = format_phone_number(@message.receiver_phone_number) if @message.receiver_phone_number.present?
+   
   end
 
   # POST /messages or /messages.json
@@ -147,6 +148,13 @@ class MessagesController < ApplicationController
       unless user_is_sender?(@message)
         redirect_to messages_path, alert: 'You are not authorized to edit this message.'
       end
+    end
+
+    def format_phone_number(phone_number)
+      # Remove the "+33" prefix and add spaces
+      number_without_prefix = phone_number.gsub(/\A\+33/, '')
+      formatted_number = number_without_prefix.gsub(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '\1 \2 \3 \4 \5')
+      formatted_number.strip
     end
 
 end
